@@ -407,12 +407,24 @@
                 updateScroll() {
                     const gallery = this.$refs.projectGallery;
                     const slideWidth = gallery.clientWidth;
-                    gallery.scrollTo({
-                        left: this.currentSlide * slideWidth,
-                        behavior: 'smooth'
-                    });
+                    
+                    // If we're moving from the last slide to the first slide
+                    if (this.currentSlide === 0 && gallery.scrollLeft === slideWidth) {
+                        // First scroll to the "hidden" third position without animation
+                        gallery.scrollTo({ left: slideWidth * 2, behavior: 'auto' });
+                        
+                        // Then after a tiny delay, smooth scroll back to the start
+                        setTimeout(() => {
+                            gallery.scrollTo({ left: 0, behavior: 'smooth' });
+                        }, 50);
+                    } else {
+                        // Normal scroll behavior
+                        gallery.scrollTo({
+                            left: this.currentSlide * slideWidth,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
-            }">
                 <!-- Left Navigation Arrow -->
                 <button class="absolute -left-4 lg:-left-8 top-1/2 transform -translate-y-1/2 z-10 
                              bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 
