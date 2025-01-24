@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>African Solar Partners - Solutions Solaires Hybrides</title>
+    
+    <!-- Core Stylesheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Animation Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Add Alpine.js for interactive features -->
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    
+    <style>
+        /* Custom Styles */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Project Slider Styles */
+        .project-slider {
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+        
+        .project-slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .project-card {
+            scroll-snap-align: start;
+        }
+        
+        /* Modal Styles */
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.75);
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .modal-content {
+            transform: scale(0.95);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .modal-content.active {
+            transform: scale(1);
+        }
+
+        /* Custom Gradient for Hero Section */
+        .hero-gradient {
+            background: linear-gradient(
+                rgba(5, 76, 126, 0.8), 
+                rgba(148, 193, 35, 0.4)
+            );
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress-container {
+            position: fixed;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+        }
+        
+        .scroll-progress-bar {
+            height: 100%;
+            background: var(--asp-green);
+            width: 0%;
+            transition: width 0.1s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50" x-data="{ 
+    mobileMenuOpen: false, 
+    scrollProgress: 0,
+    activeModal: null,
+    modalOpen: false 
+}">
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" 
+             x-bind:style="'width: ' + scrollProgress + '%'"></div>
+    </div>
+
+    <!-- Fixed Navigation -->
+    <nav class="fixed w-full bg-white shadow-lg z-40">
+        <div class="container mx-auto px-4 py-3 md:py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="images/ASP_blue_transp.png" alt="ASP Logo" 
+                         class="h-12 md:h-16 w-auto object-contain">
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#qui-sommes-nous" class="text-asp-blue hover:text-asp-green transition-colors">
+                        Qui Sommes Nous
+                    </a>
+                    <a href="#solutions" class="text-asp-blue hover:text-asp-green transition-colors">
+                        Solutions
+                    </a>
+                    <a href="#projets" class="text-asp-blue hover:text-asp-green transition-colors">
+                        Projets
+                    </a>
+                    <a href="#marques" class="text-asp-blue hover:text-asp-green transition-colors">
+                        Marques & Produits
+                    </a>
+                    <a href="#references" class="text-asp-blue hover:text-asp-green transition-colors">
+                        Références
+                    </a>
+                    <a href="#contact" class="bg-asp-blue text-white px-4 py-2 rounded-lg 
+                                          hover:bg-asp-green transition-colors">
+                        Contact
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-asp-blue" @click="mobileMenuOpen = true">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                              d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-50"
+         x-show="mobileMenuOpen"
+         x-transition:enter="transition-opacity ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition-opacity ease-in duration-300"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         @click="mobileMenuOpen = false">
+        
+        <div class="fixed inset-y-0 right-0 max-w-xs w-full bg-white shadow-xl"
+             @click.stop>
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-8">
+                    <img src="images/ASP_blue_transp.png" alt="ASP Logo" class="h-8">
+                    <button @click="mobileMenuOpen = false" class="text-gray-500">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <nav class="space-y-6">
+                    <!-- Mobile Navigation Links -->
+                    <a href="#qui-sommes-nous" @click="mobileMenuOpen = false" 
+                       class="block text-lg text-asp-blue hover:text-asp-green transition-colors">
+                        Qui Sommes Nous
+                    </a>
+                    <a href="#solutions" @click="mobileMenuOpen = false"
+                       class="block text-lg text-asp-blue hover:text-asp-green transition-colors">
+                        Solutions
+                    </a>
+                    <a href="#projets" @click="mobileMenuOpen = false"
+                       class="block text-lg text-asp-blue hover:text-asp-green transition-colors">
+                        Projets
+                    </a>
+                    <a href="#marques" @click="mobileMenuOpen = false"
+                       class="block text-lg text-asp-blue hover:text-asp-green transition-colors">
+                        Marques & Produits
+                    </a>
+                    <a href="#references" @click="mobileMenuOpen = false"
+                       class="block text-lg text-asp-blue hover:text-asp-green transition-colors">
+                        Références
+                    </a>
+                    <a href="#contact" @click="mobileMenuOpen = false"
+                       class="block text-lg bg-asp-blue text-white px-4 py-2 rounded-lg 
+                              hover:bg-asp-green transition-colors text-center">
+                        Contact
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen pt-20">
+        <div class="absolute inset-0">
+            <img src="images/images/PV_Naya_front_cover.jpg" alt="Solar Installation" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        
+        <div class="relative container mx-auto px-4 text-center h-full">
+            <div class="mt-16 flex flex-col min-h-[500px]" data-aos="fade-up">
+                <img src="images/ASP_white_transp.png" alt="ASP Logo" 
+                     class="mx-auto w-64 md:w-96 mb-12">
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8">
+                    Expert en Solutions Solaires Hybrides
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-white mb-12 max-w-3xl mx-auto">
+                    Solutions techniques avancées pour projets PV hybrides complexes à travers l'Afrique
+                </p>
+                
+                <div class="mt-8">
+                    <a href="#contact" 
+                       class="inline-block bg-asp-blue text-white px-8 py-4 rounded-lg 
+                              text-lg font-semibold hover:bg-asp-green transition-colors">
+                        Démarrer Votre Projet
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qui Sommes Nous Section -->
+    <section id="qui-sommes-nous" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
+                Qui Sommes Nous
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-bold text-asp-blue mb-6">
+                        Expertise Technique & Innovation
+                    </h3>
+                    <p class="text-gray-700 mb-6">
+                        African Solar Partners met son expertise dans le solaire PV hybride au service des 
+                        porteurs de projets commerciaux, industriels et communautaires à travers l'Afrique 
+                        et les zones isolées du monde entier.
+                    </p>
+                    <p class="text-gray-700 mb-6">
+                        Basé en France à Aix-en-Provence, nos ingénieurs sont mobiles sur toute l'Afrique 
+                        et interviennent pour des missions de formation et de mise en service.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-asp-green mt-1 flex-shrink-0" fill="none" 
+                                 stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="ml-3 text-gray-700">
+                                20+ ans d'expérience en solutions hybrides complexes
+                            </span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-asp-green mt-1 flex-shrink-0" fill="none" 
+                                 stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="ml-3 text-gray-700">
+                                Partenariats avec les leaders du marché
+                            </span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-asp-green mt-1 flex-shrink-0" fill="none" 
+                                 stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="ml-3 text-gray-700">
+                                Réseau d'installateurs locaux qualifiés
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative" data-aos="fade-left">
+                    <img src="images/PV_Naya2.jpg" alt="Installation Solaire" 
+                         class="rounded-lg shadow-xl">
+                    <div class="absolute -bottom-6 -right-6 bg-asp-blue text-white p-4 rounded-lg 
+                                shadow-lg">
+                        <p class="font-bold text-2xl">100+</p>
+                        <p class="text-sm">Projets Réalisés</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
+                Nos Solutions
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Solution Card 1 -->
+                <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow 
+                            duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-12 w-12 bg-asp-blue rounded-lg flex items-center justify-center 
+                                mb-6">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" 
+                             viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-asp-blue mb-4">
+                        Hybridation PV/Thermique
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        Solutions complètes d'hybridation multi-groupes avec intégration PV et 
+                        contrôle intelligent des systèmes.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-asp-green rounded-full mr-2"></span>
+                            Optimisation de la production
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-asp-green rounded-full mr-2"></span>
+                            Contrôle avancé des systèmes
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Solution Card 2 -->
+                <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow 
+                            duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-12 w-12 bg-asp-blue rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" 
+                             viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-asp-blue mb-4">
+                        Installations HTA
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        Expertise complète en génération et distribution haute tension, avec focus sur 
+                        la sécurité et l'efficacité.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-asp-green rounded-full mr-2"></span>
+                            Conception et mise en œuvre
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-asp-green rounded-full mr-2"></span>
+                            Maintenance préventive
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Solution Card 3 -->
+                <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow 
+                            duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-12 w-12 bg-asp-blue rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" 
+                             viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-asp-blue mb-4">
+                        Technologies Émergentes
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        Integration des dernières innovations: batteries redox/flow, H2, et solutions 
+                        de stockage avancées.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-asp-green rounded-full mr-2"></span>
+                            Solutions innovantes
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-asp-green rounded-full mr-2"></span>
+                            Performance optimisée
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Files Section -->
+    <section id="projets" class="py-20 bg-white" x-data="{ activeSlide: 0 }">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
+                Nos Projets
+            </h2>
+
+            <!-- Project Gallery Container -->
+            <div class="relative" x-data="{ scrollPosition: 0 }">
+                <!-- Navigation Arrows -->
+                <button class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 
+                               bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 
+                               transition-colors hidden md:block"
+                        @click="$refs.projectGallery.scrollBy({ left: -400, behavior: 'smooth' })">
+                    <svg class="w-6 h-6 text-asp-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+
+                <button class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 
+                               bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 
+                               transition-colors hidden md:block"
+                        @click="$refs.projectGallery.scrollBy({ left: 400, behavior: 'smooth' })">
+                    <svg class="w-6 h-6 text-asp-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+
+                <!-- Project Cards Container with Horizontal Scroll -->
+                <div class="flex overflow-x-auto hide-scrollbar gap-8 px-4 py-2" 
+                     x-ref="projectGallery"
+                     style="scroll-snap-type: x mandatory;">
+                    
+                    <!-- Project Card 1: Contrôle PV Thermique -->
+                    <div class="flex-none w-96 md:w-[450px]" style="scroll-snap-align: start;">
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden 
+                                  transform transition-all duration-300 hover:shadow-xl">
+                            <!-- Project Image Container -->
+                            <div class="relative h-64 overflow-hidden group cursor-pointer"
+                                 @click="window.open('images/Controle_PVthermique.pdf', '_blank')">
+                                <img src="images/GE_retrofit.jpg" alt="Contrôle PV Thermique" 
+                                     class="w-full h-full object-cover transition-transform duration-500 
+                                            group-hover:scale-110">
+                                <!-- Overlay with PDF Icon -->
+                                <div class="absolute inset-0 bg-gray-900 bg-opacity-0 group-hover:bg-opacity-60 
+                                            transition-all duration-300 flex items-center justify-center">
+                                    <div class="transform translate-y-full group-hover:translate-y-0 
+                                                transition-transform duration-300">
+                                        <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" 
+                                             viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
+                                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                        </svg>
+                                        <span class="block text-white text-center mt-2">
+                                            Voir le Document
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project Info -->
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-asp-blue mb-3">
+                                    Contrôle PV Thermique
+                                </h3>
+                                <p class="text-gray-600 mb-4">
+                                    Optimisation et contrôle avancé d'une centrale hybride PV-Thermique, 
+                                    maximisant l'efficacité énergétique.
+                                </p>
+                                <!-- Technical Highlights -->
+                                <div class="space-y-2 mb-4">
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <svg class="w-4 h-4 text-asp-green mr-2" fill="none" 
+                                             stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" 
+                                                  stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        <span>Puissance : 1.2 MW PV + 800 kW Thermique</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <svg class="w-4 h-4 text-asp-green mr-2" fill="none" 
+                                             stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" 
+                                                  stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        <span>Réduction carburant : 40%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2: Installation PV Togo -->
+                    <div class="flex-none w-96 md:w-[450px]" style="scroll-snap-align: start;">
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden 
+                                  transform transition-all duration-300 hover:shadow-xl">
+                            <!-- Project Image Container -->
+                            <div class="relative h-64 overflow-hidden group cursor-pointer"
+                                 @click="window.open('images/Heistal_Togo.pdf', '_blank')">
+                                <img src="images/PV_Togo.jpg" alt="Installation PV Togo" 
+                                     class="w-full h-full object-cover transition-transform duration-500 
+                                            group-hover:scale-110">
+                                <!-- Overlay with PDF Icon -->
+                                <div class="absolute inset-0 bg-gray-900 bg-opacity-0 group-hover:bg-opacity-60 
+                                            transition-all duration-300 flex items-center justify-center">
+                                    <div class="transform translate-y-full group-hover:translate-y-0 
+                                                transition-transform duration-300">
+                                        <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" 
+                                             viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
+                                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                        </svg>
+                                        <span class="block text-white text-center mt-2">
+                                            Voir le Document
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project Info -->
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-asp-blue mb-3">
+                                    Installation PV Togo
+                                </h3>
+                                <p class="text-gray-600 mb-4">
+                                    Centrale solaire hybride innovante au Togo, combinant production 
+                                    solaire et stockage énergétique.
+                                </p>
+                                <!-- Technical Highlights -->
+                                <div class="space-y-2 mb-4">
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <svg class="w-4 h-4 text-asp-green mr-2" fill="none" 
+                                             stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" 
+                                                  stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        <span>Puissance : 850 kWc + 500 kW stockage</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <svg class="w-4 h-4 text-asp-green mr-2" fill="none" 
+                                             stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" 
+                                                  stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        <span>Production : 1,380 MWh/an</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Scroll Indicator -->
+            <div class="flex justify-center mt-6 md:hidden">
+                <div class="text-sm text-gray-500">
+                    Faites défiler horizontalement pour voir plus de projets
+                </div>
+            </div>
+        </div>
+
+        <style>
+            /* Hide scrollbar while maintaining functionality */
+            .hide-scrollbar {
+                -ms-overflow-style: none;  /* IE and Edge */
+                scrollbar-width: none;     /* Firefox */
+            }
+            .hide-scrollbar::-webkit-scrollbar {
+                display: none;             /* Chrome, Safari and Opera */
+            }
+        </style>
+    </section>
+
+    <!-- Marques et Produits Section -->
+    <section id="marques" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
+                Marques et Produits
+            </h2>
+
+            <!-- Technical Categories -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Power Electronics Category -->
+                <div class="bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold text-asp-blue mb-6">
+                        Électronique de Puissance
+                    </h3>
+                    <div class="space-y-6">
+                        <!-- Fronius -->
+                        <div class="flex items-center justify-between">
+                            <img src="Fronius.jpeg" alt="Fronius" class="h-12 object-contain">
+                            <div class="ml-4">
+                                <p class="text-gray-700 font-semibold">Fronius</p>
+                                <p class="text-sm text-gray-600">Onduleurs & Solutions de Monitoring</p>
+                            </div>
+                        </div>
+                        <!-- SMA -->
+                        <div class="flex items-center justify-between">
+                            <img src="images/SMA.jpg" alt="SMA" class="h-12 object-contain">
+                            <div class="ml-4">
+                                <p class="text-gray-700 font-semibold">SMA</p>
+                                <p class="text-sm text-gray-600">Systèmes de Conversion Avancés</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Control Systems Category -->
+                <div class="bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-asp-blue mb-6">
+                        Systèmes de Contrôle
+                    </h3>
+                    <div class="space-y-6">
+                        <!-- DEIF -->
+                        <div class="flex items-center justify-between">
+                            <img src="images/DEIF.jpg" alt="DEIF" class="h-12 object-contain">
+                            <div class="ml-4">
+                                <p class="text-gray-700 font-semibold">DEIF</p>
+                                <p class="text-sm text-gray-600">Contrôle et Automation</p>
+                            </div>
+                        </div>
+                        <!-- Victron -->
+                        <div class="flex items-center justify-between">
+                            <img src="images/Victron.jpg" alt="Victron" class="h-12 object-contain">
+                            <div class="ml-4">
+                                <p class="text-gray-700 font-semibold">Victron</p>
+                                <p class="text-sm text-gray-600">Solutions de Gestion Énergie</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solar Panels Category -->
+                <div class="bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold text-asp-blue mb-6">
+                        Panneaux Solaires
+                    </h3>
+                    <div class="space-y-6">
+                        <!-- JA Solar -->
+                        <div class="flex items-center justify-between">
+                            <img src="images/JA_Solar.jpg" alt="JA Solar" class="h-12 object-contain">
+                            <div class="ml-4">
+                                <p class="text-gray-700 font-semibold">JA Solar</p>
+                                <p class="text-sm text-gray-600">Modules Haute Performance</p>
+                            </div>
+                        </div>
+                        <!-- Jinko Solar -->
+                        <div class="flex items-center justify-between">
+                            <img src="images/Jinko_Solar.jpg" alt="Jinko Solar" class="h-12 object-contain">
+                            <div class="ml-4">
+                                <p class="text-gray-700 font-semibold">Jinko Solar</p>
+                                <p class="text-sm text-gray-600">Solutions Photovoltaïques Avancées</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partnership Value Proposition -->
+            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                <p class="text-xl text-gray-700 mb-8">
+                    Notre expertise technique et nos partenariats stratégiques vous garantissent 
+                    l'accès aux meilleures solutions du marché, soutenues par un service 
+                    d'excellence et une expertise pointue.
+                </p>
+                <a href="#contact" class="inline-block bg-asp-blue text-white px-8 py-4 rounded-lg 
+                                       text-lg font-semibold hover:bg-asp-green transition-colors">
+                    Discuter de Votre Projet
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- References Section -->
+    <section id="references" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
+                Références
+            </h2>
+
+            <!-- Case Studies Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Case Study 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up">
+                    <img src="images/PV_Naya2.jpg" alt="DEIF Sava" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-asp-blue mb-4">DEIF Sava</h3>
+                        <p class="text-gray-700 mb-4">
+                            Installation et mise en service d'un système de contrôle avancé pour 
+                            centrale hybride.
+                        </p>
+                        <div class="flex justify-between text-sm text-gray-600">
+                            <span>Puissance: 1.2 MW</span>
+                            <span>Année: 2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" 
+                     data-aos-delay="100">
+                    <img src="images/PV_Togo.jpg" alt="Projet Togo" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-asp-blue mb-4">Togo Heistal</h3>
+                        <p class="text-gray-700 mb-4">
+                            Conception et réalisation d'une centrale solaire hybride pour site isolé.
+                        </p>
+                        <div class="flex justify-between text-sm text-gray-600">
+                            <span>Puissance: 850 kWc</span>
+                            <span>Année: 2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" 
+                     data-aos-delay="200">
+                    <img src="images/GE_retrofit.jpg" alt="Projet Mifoko" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-asp-blue mb-4">Mifoko</h3>
+                        <p class="text-gray-700 mb-4">
+                            Optimisation et modernisation d'une installation existante avec 
+                            intégration PV.
+                        </p>
+                        <div class="flex justify-between text-sm text-gray-600">
+                            <span>Puissance: 500 kW</span>
+                            <span>Année: 2022</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+                    <!-- Project 2 Content -->
+                    <div x-show="activeModal === 'project2'">
+                        <img src="images/PV_Togo.jpg" alt="Installation PV Togo" class="w-full rounded-lg mb-6">
+                        <h4 class="text-xl font-bold text-asp-blue mb-4">Description du Projet</h4>
+                        <p class="text-gray-700 mb-6">
+                            Installation d'une centrale solaire au Togo, incluant le dimensionnement, 
+                            l'installation et la mise en service complète du système. 
+                            Ce projet démontre notre capacité à réaliser des installations 
+                            complexes dans des conditions exigeantes.
+                        </p>
+                        <!-- Technical Specifications -->
+                        <div class="bg-gray-50 rounded-lg p-6">
+                            <h5 class="font-bold text-asp-blue mb-4">Spécifications Techniques</h5>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-asp-green rounded-full mr-2 mt-2"></span>
+                                    <span class="text-gray-700">
+                                        Puissance installée : 850 kWc solaire + 500 kW stockage
+                                    </span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-asp-green rounded-full mr-2 mt-2"></span>
+                                    <span class="text-gray-700">
+                                        Production annuelle : 1,380 MWh/an
+                                    </span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-asp-green rounded-full mr-2 mt-2"></span>
+                                    <span class="text-gray-700">
+                                        Système de stockage : Batteries lithium-ion 1 MWh
+                                    </span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-asp-green rounded-full mr-2 mt-2"></span>
+                                    <span class="text-gray-700">
+                                        Équipements : Onduleurs SMA, système de contrôle DEIF
+                                    </span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-asp-green rounded-full mr-2 mt-2"></span>
+                                    <span class="text-gray-700">
+                                        Impact environnemental : Réduction de 920 tonnes CO2/an
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Project Timeline -->
+                        <div class="mt-6 bg-gray-50 rounded-lg p-6">
+                            <h5 class="font-bold text-asp-blue mb-4">Calendrier du Projet</h5>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <div class="w-24 text-sm font-medium text-gray-600">Étude</div>
+                                    <div class="flex-1 h-2 bg-gray-200 rounded-full">
+                                        <div class="h-2 bg-asp-blue rounded-full" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-24 text-sm font-medium text-gray-600">Installation</div>
+                                    <div class="flex-1 h-2 bg-gray-200 rounded-full">
+                                        <div class="h-2 bg-asp-blue rounded-full" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-24 text-sm font-medium text-gray-600">Test</div>
+                                    <div class="flex-1 h-2 bg-gray-200 rounded-full">
+                                        <div class="h-2 bg-asp-blue rounded-full" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-24 text-sm font-medium text-gray-600">Maintenance</div>
+                                    <div class="flex-1 h-2 bg-gray-200 rounded-full">
+                                        <div class="h-2 bg-asp-green rounded-full" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Key Achievements -->
+                        <div class="mt-6 bg-gray-50 rounded-lg p-6">
+                            <h5 class="font-bold text-asp-blue mb-4">Points Clés du Projet</h5>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-asp-green rounded-full mr-2 mt-2"></span>
+                                    <span class="text-gray-700">
+                                        Installation réalisée en 4 mois
+                                    </span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-asp-green rounded-full mr-2 mt-2"></span>
+                                    <span class="text-gray-700">
+                                        Formation complète des équipes locales
+                                    </span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-asp-green rounded-full mr-2 mt-2"></span>
+                                    <span class="text-gray-700">
+                                        Optimisation continue du rendement
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marques et Produits Section -->
+    <!-- This section showcases technical partnerships using a grid layout for visual balance
+         and categorizes products by their technical function rather than just by brand -->
+    <section id="marques" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
+                Partenaires Technologiques
+            </h2>
+
+            <!-- Technical Categories Grid -->
+            <!-- Using a three-column grid to organize products by technical function
+                 Each category includes relevant product details and specifications -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Power Generation Category -->
+                <div class="bg-white rounded-lg shadow-lg p-8" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold text-asp-blue mb-6">
+                        Production d'Énergie
+                    </h3>
+                    <div class="space-y-8">
+                        <!-- JA Solar -->
+                        <div class="group">
+                            <div class="flex items-center justify-between mb-4">
+                                <img src="images/JA_Solar.jpg" alt="JA Solar" class="h-12 object-contain">
+                                <span class="text-sm font-semibold text-asp-green">Premium Partner</span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-asp-blue mb-2">Spécifications</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Modules haute efficacité > 21.5%</li>
+                                    <li>• Garantie performance 25 ans</li>
+                                    <li>• Certification IEC/CE</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Jinko Solar -->
+                        <div class="group">
+                            <div class="flex items-center justify-between mb-4">
+                                <img src="images/Jinko_Solar.jpg" alt="Jinko Solar" class="h-12 object-contain">
+                                <span class="text-sm font-semibold text-asp-green">Certified Partner</span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-asp-blue mb-2">Applications</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Solutions industrielles</li>
+                                    <li>• Installations commerciales</li>
+                                    <li>• Projets utility-scale</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Power Electronics Category -->
+                <div class="bg-white rounded-lg shadow-lg p-8" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-asp-blue mb-6">
+                        Électronique de Puissance
+                    </h3>
+                    <div class="space-y-8">
+                        <!-- SMA -->
+                        <div class="group">
+                            <div class="flex items-center justify-between mb-4">
+                                <img src="images/SMA.jpg" alt="SMA" class="h-12 object-contain">
+                                <span class="text-sm font-semibold text-asp-green">Solution Expert</span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-asp-blue mb-2">Solutions</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Onduleurs centraux jusqu'à 6.6 MVA</li>
+                                    <li>• Solutions hybrides complètes</li>
+                                    <li>• Monitoring intelligent</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Fronius -->
+                        <div class="group">
+                            <div class="flex items-center justify-between mb-4">
+                                <img src="Fronius.jpeg" alt="Fronius" class="h-12 object-contain">
+                                <span class="text-sm font-semibold text-asp-green">System Partner</span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-asp-blue mb-2">Expertise</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Solutions commerciales intégrées</li>
+                                    <li>• Systèmes de stockage hybrides</li>
+                                    <li>• Gestion intelligente de l'énergie</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Control Systems Category -->
+                <div class="bg-white rounded-lg shadow-lg p-8" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold text-asp-blue mb-6">
+                        Systèmes de Contrôle
+                    </h3>
+                    <div class="space-y-8">
+                        <!-- DEIF -->
+                        <div class="group">
+                            <div class="flex items-center justify-between mb-4">
+                                <img src="images/DEIF.jpg" alt="DEIF" class="h-12 object-contain">
+                                <span class="text-sm font-semibold text-asp-green">Premium Partner</span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-asp-blue mb-2">Contrôle Avancé</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Automatisation complète</li>
+                                    <li>• Gestion multi-sources</li>
+                                    <li>• Monitoring temps réel</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Victron -->
+                        <div class="group">
+                            <div class="flex items-center justify-between mb-4">
+                                <img src="Victron.jpg" alt="Victron" class="h-12 object-contain">
+                                <span class="text-sm font-semibold text-asp-green">Certified Partner</span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-asp-blue mb-2">Solutions</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Systèmes hybrides complets</li>
+                                    <li>• Gestion de batterie intelligente</li>
+                                    <li>• Communication avancée</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partnership Value Proposition -->
+            <!-- This section emphasizes the strategic value of ASP's partnerships -->
+            <div class="max-w-3xl mx-auto text-center mt-16" data-aos="fade-up">
+                <p class="text-xl text-gray-700 mb-8">
+                    Notre réseau de partenaires technologiques nous permet de vous proposer 
+                    les solutions les plus innovantes et fiables du marché, soutenues par 
+                    une expertise technique approfondie.
+                </p>
+                <a href="#contact" 
+                   class="inline-block bg-asp-blue text-white px-8 py-4 rounded-lg 
+                          text-lg font-semibold hover:bg-asp-green transition-colors">
+                    Discuter de Votre Projet
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <!-- The contact form is designed to gather detailed technical requirements
+         while maintaining a professional and accessible layout -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
+                Contact
+            </h2>
+
+            <!-- Contact Form Container -->
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-lg shadow-xl p-8" data-aos="fade-up">
+                    <!-- Form Introduction -->
+                    <div class="text-center mb-12">
+                        <h3 class="text-2xl font-bold text-asp-blue mb-4">
+                            Démarrez Votre Projet
+                        </h3>
+                        <p class="text-gray-700">
+                            Notre équipe d'experts vous accompagnera dans la réalisation de 
+                            vos objectifs énergétiques.
+                        </p>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <!-- Using form validation and semantic HTML for accessibility -->
+                    <form class="space-y-8" id="contact-form">
+                        <!-- Contact Information Section -->
+                        <div class="bg-gray-50 rounded-lg p-6">
+                            <h4 class="text-lg font-semibold text-asp-blue mb-6">
+                                Informations de Contact
+                            </h4>
+                            
+                            <!-- Two Column Layout for Name and Company -->
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="name" 
+                                           class="block text-sm font-medium text-gray-700 mb-2">
+                                        Nom Complet *
+                                    </label>
+                                    <input type="text" id="name" name="name" required
+                                           class="w-full px-4 py-2 border rounded-lg focus:ring-2 
+                                                  focus:ring-asp-blue focus:border-transparent">
+                                </div>
+                                
+                                <div>
+                                    <label for="company" 
+                                           class="block text-sm font-medium text-gray-700 mb-2">
+                                        Société
+                                    </label>
+                                    <input type="text" id="company" name="company"
+                                           class="w-full px-4 py-2 border rounded-lg focus:ring-2 
+                                                  focus:ring-asp-blue focus:border-transparent">
+                                </div>
+                            </div>
+
+                            <!-- Two Column Layout for Email and Phone -->
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="email" 
+                                           class="block text-sm font-medium text-gray-700 mb-2">
+                                        Email *
+                                    </label>
+                                    <input type="email" id="email" name="email" required
+                                           class="w-full px-4 py-2 border rounded-lg focus:ring-2 
+                                                  focus:ring-asp-blue focus:border-transparent">
+                                </div>
+                                
+                                <div>
+                                    <label for="phone" 
+                                           class="block text-sm font-medium text-gray-700 mb-2">
+                                        Téléphone
+                                    </label>
+                                    <input type="tel" id="phone" name="phone"
+                                           class="w-full px-4 py-2 border rounded-lg focus:ring-2 
+                                                  focus:ring-asp-blue focus:border-transparent">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project Details Section -->
+                        <div class="bg-gray-50 rounded-lg p-6">
+                            <h4 class="text-lg font-semibold text-asp-blue mb-6">
+                                Détails du Projet
+                            </h4>
+
+                            <!-- Project Type -->
+                            <div class="mb-6">
+                                <label for="project_type" 
+                                       class="block text-sm font-medium text-gray-700 mb-2">
+                                    Type de Projet *
+                                </label>
+                                <select id="project_type" name="project_type" required
+                                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 
+                                               focus:ring-asp-blue focus:border-transparent">
+                                    <option value="">Sélectionnez le type de projet</option>
+                                    <option value="hybrid">Installation Hybride PV/Thermique</option>
+                                    <option value="control">Contrôle et Automation</option>
+                                    <option value="hta">Installation HTA</option>
+                                    <option value="study">Étude de Faisabilité</option>
+                                    <option value="other">Autre</option>
+                                </select>
+                            </div>
+
+                            <!-- Project Location -->
+                            <div class="mb-6">
+                                <label for="location" 
+                                       class="block text-sm font-medium text-gray-700 mb-2">
+                                    Localisation du Projet *
+                                </label>
+                                <input type="text" id="location" name="location" required
+                                       class="w-full px-4 py-2 border rounded-lg focus:ring-2 
+                                              focus:ring-asp-blue focus:border-transparent"
+                                       placeholder="Pays, Ville">
+                            </div>
+
+                            <!-- Project Timeline -->
+                            <div class="mb-6">
+                                <label for="timeline" 
+                                       class="block text-sm font-medium text-gray-700 mb-2">
+                                    Calendrier Souhaité
+                                </label>
+                                <select id="timeline" name="timeline"
+                                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 
+                                               focus:ring-asp-blue focus:border-transparent">
+                                    <option value="">Sélectionnez une période</option>
+                                    <option value="immediate">Immédiat</option>
+                                    <option value="3months">Dans les 3 mois</option>
+                                    <option value="6months">Dans les 6 mois</option>
+                                    <option value="12months">Dans l'année</option>
+                                    <option value="planning">Phase de planification</option>
+                                </select>
+                            </div>
+
+                            <!-- Project Description -->
+                            <div class="mb-6">
+                                <label for="description" 
+                                       class="block text-sm font-medium text-gray-700 mb-2">
+                                    Description Détaillée du Projet *
+                                </label>
+                                <textarea id="description" name="description" rows="6" required
+                                          class="w-full px-4 py-2 border rounded-lg focus:ring-2 
+                                                 focus:ring-asp-blue focus:border-transparent"
+                                          placeholder="Décrivez votre projet, ses spécifications techniques, vos objectifs et toute autre information pertinente..."></textarea>
+                            </div>
+
+                            <!-- Technical Requirements -->
+                            <div class="mb-6">
+                                <h5 class="text-sm font-medium text-gray-700 mb-4">
+                                    Spécifications Techniques (si connues)
+                                </h5>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="power_capacity" 
+                                               class="block text-sm text-gray-600 mb-1">
+                                            Puissance Souhaitée (kW/MW)
+                                        </label>
+                                        <input type="text" id="power_capacity" name="power_capacity"
+                                               class="w-full px-4 py-2 border rounded-lg focus:ring-2 
+                                                      focus:ring-asp-blue focus:border-transparent">
+                                    </div>
+                                    <div>
+                                        <label for="storage_capacity" 
+                                               class="block text-sm text-gray-600 mb-1">
+                                            Capacité de Stockage
+                                        </label>
+                                        <input type="text" id="storage_capacity" name="storage_capacity"
+                                               class="w-full px-4 py-2 border rounded-lg focus:ring-2 
+                                                      focus:ring-asp-blue focus:border-transparent">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="flex justify-center">
+                            <button type="submit" 
+                                    class="bg-asp-blue text-white px-8 py-4 rounded-lg text-lg 
+                                           font-semibold hover:bg-asp-green transition-colors 
+                                           focus:outline-none focus:ring-2 focus:ring-offset-2 
+                                           focus:ring-asp-blue">
+                                Envoyer la Demande
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 pt-16 pb-8 border-t border-gray-200">
+        <div class="container mx-auto px-4">
+            <!-- Footer Content Grid -->
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- Company Information -->
+                <div class="col-span-2">
+                    <img src="images/ASP_blue_transp.png" alt="ASP Logo" class="h-12 mb-6">
+                    <p class="text-gray-600 mb-6">
+                        Expert en solutions solaires hybrides complexes, African Solar Partners 
+                        accompagne les projets énergétiques à travers l'Afrique avec une expertise 
+                        technique pointue et un engagement pour l'excellence.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" 
+                           class="text-asp-blue hover:text-asp-green transition-colors">
+                            <span class="sr-only">LinkedIn</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold text-asp-blue mb-4">Navigation</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#qui-sommes-nous" 
+                               class="text-gray-600 hover:text-asp-green transition-colors">
+                                Qui Sommes Nous
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#solutions" 
+                               class="text-gray-600 hover:text-asp-green transition-colors">
+                                Solutions
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#projets" 
+                               class="text-gray-600 hover:text-asp-green transition-colors">
+                                Projets
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#marques" 
+                               class="text-gray-600 hover:text-asp-green transition-colors">
+                                Partenaires
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" 
+                               class="text-gray-600 hover:text-asp-green transition-colors">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Information -->
+                <div>
+                    <h3 class="text-lg font-bold text-asp-blue mb-4">Contact</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-asp-blue mt-1 mr-3" fill="none" 
+                                 stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <div>
+                                <p class="text-gray-600">Aix-en-Provence</p>
+                                <p class="text-gray-600">France</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-asp-blue mt-1 mr-3" fill="none" 
+                                 stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <a href="mailto:contact@asp-energy.com" 
+                               class="text-gray-600 hover:text-asp-green transition-colors">
+                                contact@asp-energy.com
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="pt-8 border-t border-gray-200">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-600 text-sm">
+                        © 2025 African Solar Partners. Tous droits réservés.
+                    </p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-600 hover:text-asp-green text-sm">
+                            Mentions Légales
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-asp-green text-sm">
+                            Politique de Confidentialité
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation library with custom settings
+        AOS.init({
+            duration: 1000, // Animation duration in milliseconds
+            once: true,     // Whether animation should happen only once
+            offset: 100,    // Offset (in px) from the original trigger point
+            disable: 'mobile' // Disable animations on mobile devices
+        });
+
+        // Scroll Progress Handler
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - 
+                          document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-progress-bar').style.width = scrolled + '%';
+        });
+
+        // Form Submission Handler
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Merci pour votre message. Notre équipe vous contactera rapidement.');
+        });
+
+        // Smooth Scroll Implementation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
