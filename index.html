@@ -91,11 +91,11 @@
 
     <!-- Fixed Navigation -->
     <nav class="fixed w-full bg-white shadow-lg z-40">
-        <div class="container mx-auto px-4 py-3 md:py-4">
+        <div class="container mx-auto px-4 py-5 md:py-6">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <img src="images/ASP_blue_transp.png" alt="ASP Logo" 
-                         class="h-12 md:h-16 w-auto object-contain">
+                         class="w-full max-h-20 object-contain">
                 </div>
                 
                 <!-- Desktop Navigation -->
@@ -147,7 +147,7 @@
              @click.stop>
             <div class="p-6">
                 <div class="flex items-center justify-between mb-8">
-                    <img src="images/ASP_blue_transp.png" alt="ASP Logo" class="h-8">
+                    <img src="images/ASP_blue_transp.png" alt="ASP Logo" class="w-full max-h-40 object-contain">
                     <button @click="mobileMenuOpen = false" class="text-gray-500">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
@@ -191,15 +191,15 @@
     <!-- Hero Section -->
     <section class="relative min-h-screen pt-20">
         <div class="absolute inset-0">
-            <img src="images/images/PV_Naya_front_cover.jpg" alt="Solar Installation" 
+            <img src="images/PV_Naya_front_cover.jpg" alt="Solar Installation" 
                  class="w-full h-full object-cover">
             <div class="absolute inset-0 hero-gradient"></div>
         </div>
         
         <div class="relative container mx-auto px-4 text-center h-full">
             <div class="mt-16 flex flex-col min-h-[500px]" data-aos="fade-up">
-                <img src="images/ASP_white_transp.png" alt="ASP Logo" 
-                     class="mx-auto w-64 md:w-96 mb-12">
+                <img src="images/ASP_logo_transp.png" alt="ASP Logo" 
+                     class="mx-auto w-96 md:w-[48rem] mb-12">
                 
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8">
                     Expert en Solutions Solaires Hybrides
@@ -386,7 +386,238 @@
             </div>
         </div>
     </section>
+    
+    <!-- Projets de Référence Section -->
+    <section id="references" class="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="container mx-auto px-4">
+            <!-- Section Header -->
+            <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
+                Projets de Référence
+            </h2>
 
+            <!-- Project Gallery Container -->
+            <div class="relative" x-data="{ activeSlide: 0 }">
+                <!-- Navigation Arrows - Positioned further out for better visibility with larger cards -->
+                <button class="absolute -left-4 lg:-left-12 top-1/2 transform -translate-y-1/2 z-10 
+                               bg-white rounded-full p-4 shadow-lg hover:bg-gray-100 
+                               transition-colors hidden md:block focus:outline-none focus:ring-2 
+                               focus:ring-asp-blue"
+                        @click="$refs.projectGallery.scrollBy({ left: -500, behavior: 'smooth' })">
+                    <svg class="w-8 h-8 text-asp-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+
+                <button class="absolute -right-4 lg:-right-12 top-1/2 transform -translate-y-1/2 z-10 
+                               bg-white rounded-full p-4 shadow-lg hover:bg-gray-100 
+                               transition-colors hidden md:block focus:outline-none focus:ring-2 
+                               focus:ring-asp-blue"
+                        @click="$refs.projectGallery.scrollBy({ left: 500, behavior: 'smooth' })">
+                    <svg class="w-8 h-8 text-asp-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+
+                <!-- Project Cards Container -->
+                <div class="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory gap-8 px-4 py-2" 
+                     x-ref="projectGallery">
+                    
+                    <!-- Project Card 1 -->
+                    <div class="flex-none w-full md:w-[600px] snap-center" data-aos="fade-up">
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden 
+                                  transform transition-all duration-300 hover:shadow-xl">
+                            <!-- Image Container with Centered PDF Overlay -->
+                            <div class="relative h-80 overflow-hidden group cursor-pointer"
+                                 @click="window.open('images/Controle_PVthermique.pdf', '_blank')">
+                                <img src="images/GE_retrofit.jpg" alt="Contrôle PV Thermique" 
+                                     class="w-full h-full object-cover transition-transform duration-500 
+                                            group-hover:scale-105">
+                                <!-- Enhanced PDF Overlay -->
+                                <div class="absolute inset-0 bg-gray-900 bg-opacity-0 
+                                            group-hover:bg-opacity-75 transition-all duration-300 
+                                            flex items-center justify-center">
+                                    <div class="transform translate-y-full group-hover:translate-y-0 
+                                                transition-transform duration-300 text-center">
+                                        <div class="bg-white rounded-full p-4 mx-auto mb-4 
+                                                    w-16 h-16 flex items-center justify-center">
+                                            <svg class="w-8 h-8 text-asp-blue" fill="none" 
+                                                 stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                                      stroke-width="1.5" 
+                                                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                            </svg>
+                                        </div>
+                                        <span class="text-white text-lg font-semibold">
+                                            Consulter le Projet
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project Information -->
+                            <div class="p-8">
+                                <h3 class="text-2xl font-bold text-asp-blue mb-4">
+                                    Contrôle PV Thermique
+                                </h3>
+                                <p class="text-gray-600 text-lg mb-6">
+                                    Optimisation et contrôle avancé d'une centrale hybride PV-Thermique, 
+                                    maximisant l'efficacité énergétique et réduisant l'empreinte carbone.
+                                </p>
+                                <!-- Technical Specifications -->
+                                <div class="grid grid-cols-2 gap-6">
+                                    <div class="space-y-3">
+                                        <div class="flex items-center">
+                                            <svg class="w-5 h-5 text-asp-green mr-3" fill="none" 
+                                                 stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                                      stroke-width="2" d="M5 13l4 4L19 7"/>
+                                            </svg>
+                                            <span class="text-gray-700">Puissance : 1.2 MW PV</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <svg class="w-5 h-5 text-asp-green mr-3" fill="none" 
+                                                 stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                                      stroke-width="2" d="M5 13l4 4L19 7"/>
+                                            </svg>
+                                            <span class="text-gray-700">800 kW Thermique</span>
+                                        </div>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center">
+                                            <svg class="w-5 h-5 text-asp-green mr-3" fill="none" 
+                                                 stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                                      stroke-width="2" d="M5 13l4 4L19 7"/>
+                                            </svg>
+                                            <span class="text-gray-700">Réduction carburant : 40%</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <svg class="w-5 h-5 text-asp-green mr-3" fill="none" 
+                                                 stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                                      stroke-width="2" d="M5 13l4 4L19 7"/>
+                                            </svg>
+                                            <span class="text-gray-700">Contrôle intelligent</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="flex-none w-full md:w-[600px] snap-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden 
+                                  transform transition-all duration-300 hover:shadow-xl">
+                            <!-- Image Container with Centered PDF Overlay -->
+                            <div class="relative h-80 overflow-hidden group cursor-pointer"
+                                 @click="window.open('images/Heistal_Togo.pdf', '_blank')">
+                                <img src="images/PV_Togo.jpg" alt="Installation PV Togo" 
+                                     class="w-full h-full object-cover transition-transform duration-500 
+                                            group-hover:scale-105">
+                                <!-- Enhanced PDF Overlay -->
+                                <div class="absolute inset-0 bg-gray-900 bg-opacity-0 
+                                            group-hover:bg-opacity-75 transition-all duration-300 
+                                            flex items-center justify-center">
+                                    <div class="transform translate-y-full group-hover:translate-y-0 
+                                                transition-transform duration-300 text-center">
+                                        <div class="bg-white rounded-full p-4 mx-auto mb-4 
+                                                    w-16 h-16 flex items-center justify-center">
+                                            <svg class="w-8 h-8 text-asp-blue" fill="none" 
+                                                 stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                                      stroke-width="1.5" 
+                                                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                            </svg>
+                                        </div>
+                                        <span class="text-white text-lg font-semibold">
+                                            Consulter le Projet
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project Information -->
+                            <div class="p-8">
+                                <h3 class="text-2xl font-bold text-asp-blue mb-4">
+                                    Installation PV Togo
+                                </h3>
+                                <p class="text-gray-600 text-lg mb-6">
+                                    Centrale solaire hybride innovante au Togo, alliant production 
+                                    photovoltaïque et système de stockage pour une autonomie optimale.
+                                </p>
+                                <!-- Technical Specifications -->
+                                <div class="grid grid-cols-2 gap-6">
+                                    <div class="space-y-3">
+                                        <div class="flex items-center">
+                                            <svg class="w-5 h-5 text-asp-green mr-3" fill="none" 
+                                                 stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                                      stroke-width="2" d="M5 13l4 4L19 7"/>
+                                            </svg>
+                                            <span class="text-gray-700">850 kWc solaire</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <svg class="w-5 h-5 text-asp-green mr-3" fill="none" 
+                                                 stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                                      stroke-width="2" d="M5 13l4 4L19 7"/>
+                                            </svg>
+                                            <span class="text-gray-700">500 kW stockage</span>
+                                        </div>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center">
+                                            <svg class="w-5 h-5 text-asp-green mr-3" fill="none" 
+                                                 stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                                      stroke-width="2" d="M5 13l4 4L19 7"/>
+                                            </svg>
+                                            <span class="text-gray-700">1,380 MWh/an</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <svg class="w-5 h-5 text-asp-green mr-3" fill="none" 
+                                                 stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                                      stroke-width="2" d="M5 13l4 4L19 7"/>
+                                            </svg>
+                                            <span class="text-gray-700">Système hybride</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Cards 3 & 4 are duplicates for now -->
+                    <!-- Duplicate of Card 1 -->
+                    <!-- [Same structure as Card 1 with identical content] -->
+
+                    <!-- Duplicate of Card 2 -->
+                    <!-- [Same structure as Card 2 with identical content] -->
+
+                </div>
+
+                <!-- Mobile Scroll Indicator -->
+                <div class="flex justify-center mt-8 md:hidden">
+                    <p class="text-sm text-gray-500">
+                        Faites défiler horizontalement pour découvrir plus de projets
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .hide-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+        </style>
+    </section>
     <!-- Project Files Section -->
     <section id="projets" class="py-20 bg-white" x-data="{ activeSlide: 0 }">
         <div class="container mx-auto px-4">
