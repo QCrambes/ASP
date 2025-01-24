@@ -410,7 +410,7 @@
                                bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 
                                transition-colors hidden md:block focus:outline-none focus:ring-2 
                                focus:ring-asp-blue"
-                        @click="$refs.projectGallery.scrollBy({ left: 450, behavior: 'smooth' })">
+                        @click="$refs.projectGallery.scrollBy({ left: $refs.projectGallery.clientWidth, behavior: 'smooth' })">
                     <svg class="w-6 h-6 text-asp-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
@@ -421,7 +421,7 @@
                      x-ref="projectGallery">
                     
                     <!-- Project Card 1: Contrôle PV Thermique -->
-                    <div class="flex-none w-full md:w-[450px] snap-center" data-aos="fade-up">
+                    <div class="flex-none w-full md:w-[250px] snap-center" data-aos="fade-up">
                         <div class="bg-white rounded-xl shadow-lg overflow-hidden 
                                   transform transition-all duration-300 hover:shadow-xl">
                             <div class="relative h-64 overflow-hidden group cursor-pointer"
@@ -481,7 +481,7 @@
                     </div>
 
                     <!-- Project Card 2: Installation PV Togo -->
-                    <div class="flex-none w-full md:w-[450px] snap-center" data-aos="fade-up">
+                    <div class="flex-none w-full md:w-[250px] snap-center" data-aos="fade-up">
                         <div class="bg-white rounded-xl shadow-lg overflow-hidden 
                                   transform transition-all duration-300 hover:shadow-xl">
                             <div class="relative h-64 overflow-hidden group cursor-pointer"
@@ -541,7 +541,7 @@
                     </div>
 
                     <!-- Project Card 3: Second Instance of Contrôle PV Thermique -->
-                    <div class="flex-none w-full md:w-[450px] snap-center" data-aos="fade-up">
+                    <div class="flex-none w-full md:w-[250px] snap-center" data-aos="fade-up">
                         <div class="bg-white rounded-xl shadow-lg overflow-hidden 
                                   transform transition-all duration-300 hover:shadow-xl">
                             <div class="relative h-64 overflow-hidden group cursor-pointer"
@@ -601,7 +601,7 @@
                     </div>
 
                     <!-- Project Card 4: Second Instance of Installation PV Togo -->
-                    <div class="flex-none w-full md:w-[450px] snap-center" data-aos="fade-up">
+                    <div class="flex-none w-full md:w-[250px] snap-center" data-aos="fade-up">
                         <div class="bg-white rounded-xl shadow-lg overflow-hidden 
                                   transform transition-all duration-300 hover:shadow-xl">
                             <div class="relative h-64 overflow-hidden group cursor-pointer"
