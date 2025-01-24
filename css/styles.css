@@ -1,1 +1,100 @@
+/* css/styles.css */
+:root {
+  /* Primary Colors
+     The main brand colors that establish the core identity */
+  --asp-blue: #054C7E;      /* Deep blue - Primary brand color */
+  --asp-green: #94C123;     /* Vibrant green - Secondary brand color */
+  
+  /* Secondary Colors - Blue Spectrum
+     A range of blue shades for depth and hierarchy */
+  --asp-blue-dark: #054c7e;    /* Matches primary blue for consistency */
+  --asp-blue-medium: #186492;  /* Medium blue for secondary elements */
+  --asp-blue-light: #4e8fb7;   /* Light blue for supporting elements */
+  --asp-blue-pale: #71b0d8;    /* Pale blue for subtle backgrounds */
+  --asp-blue-hint: #c1e1f4;    /* Lightest blue for subtle highlights */
+  
+  /* Secondary Colors - Green Spectrum
+     Complementary green variations for balance */
+  --asp-green-dark: #82a129;   /* Dark green for emphasis */
+  --asp-green-medium: #abca43; /* Medium green for secondary elements */
+  --asp-green-light: #b4cc69;  /* Light green for supporting elements */
+  --asp-green-pale: #cbda73;   /* Pale green for subtle backgrounds */
+  --asp-green-hint: #d4e3a8;   /* Lightest green for subtle highlights */
+  
+  /* Typography 
+     Montserrat font variations for brand consistency */
+  --font-primary: 'Montserrat ExtraBold', 'Montserrat-ExtraBold', sans-serif;
+  --font-secondary: 'Montserrat Light', 'Montserrat-Light', sans-serif;
+}
 
+/* Gradient Variations 
+   Preset gradients for visual interest */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--asp-blue) 0%, var(--asp-green) 100%);
+}
+
+.gradient-blue {
+  background: linear-gradient(135deg, 
+    var(--asp-blue-dark) 0%, 
+    var(--asp-blue-light) 100%
+  );
+}
+.gradient-green {
+  background: linear-gradient(135deg, 
+    var(--asp-green-dark) 0%, 
+    var(--asp-green-light) 100%
+  );
+}
+
+/* Text Color Utilities */
+.text-asp-blue { color: var(--asp-blue); }
+.text-asp-green { color: var(--asp-green); }
+.text-asp-blue-medium { color: var(--asp-blue-medium); }
+.text-asp-green-medium { color: var(--asp-green-medium); }
+
+/* Background Color Utilities */
+.bg-asp-blue { background-color: var(--asp-blue); }
+.bg-asp-green { background-color: var(--asp-green); }
+.bg-asp-blue-light { background-color: var(--asp-blue-light); }
+.bg-asp-green-light { background-color: var(--asp-green-light); }
+.bg-asp-blue-hint { background-color: var(--asp-blue-hint); }
+.bg-asp-green-hint { background-color: var(--asp-green-hint); }
+
+/* Border Color Utilities */
+.border-asp-blue { border-color: var(--asp-blue); }
+.border-asp-green { border-color: var(--asp-green); }
+.border-asp-blue-medium { border-color: var(--asp-blue-medium); }
+.border-asp-green-medium { border-color: var(--asp-green-medium); }
+
+/* Interactive State Utilities */
+.hover-asp-blue:hover { 
+    color: var(--asp-blue); 
+}
+.hover-asp-green:hover { 
+    color: var(--asp-green); 
+}
+.hover-bg-asp-blue:hover { 
+    background-color: var(--asp-blue); 
+}
+
+.hover-bg-asp-green:hover { 
+    background-color: var(--asp-green); 
+}
+
+/* Focus State Utilities */
+.focus-asp-blue:focus { 
+    outline-color: var(--asp-blue); 
+}
+
+.focus-asp-green:focus { 
+    outline-color: var(--asp-green); 
+}
+
+/* Active State Utilities */
+.active-asp-blue:active { 
+    background-color: var(--asp-blue-light); 
+}
+
+.active-asp-green:active { 
+    background-color: var(--asp-green-light); 
+}
