@@ -393,39 +393,67 @@
             </h2>
 
             <!-- Project Gallery Container with Alpine.js -->
+            <!-- The carousel logic uses cloned slides at the edges to create a seamless infinite scroll effect -->
             <div class="relative" x-data="{ 
                 currentSlide: 0,
-                totalSlides: 2,  // We have 4 cards shown 2 at a time = 2 slides
+                totalSlides: 2,
+                isTransitioning: false,
+
+                // Handles forward movement (right arrow)
                 next() {
-                    this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-                    this.updateScroll();
-                },
-                prev() {
-                    this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-                    this.updateScroll();
-                },
-                updateScroll() {
+                    if (this.isTransitioning) return;
+                    this.isTransitioning = true;
+                    
                     const gallery = this.$refs.projectGallery;
                     const slideWidth = gallery.clientWidth;
-                    
-                    // If we're moving from the last slide to the first slide
-                    if (this.currentSlide === 0 && gallery.scrollLeft === slideWidth) {
-                        // First scroll to the "hidden" third position without animation
-                        gallery.scrollTo({ left: slideWidth * 2, behavior: 'auto' });
+
+                    if (this.currentSlide === this.totalSlides - 1) {
+                        // At last slide: scroll forward to the cloned first slide
+                        gallery.scrollBy({ left: slideWidth, behavior: 'smooth' });
                         
-                        // Then after a tiny delay, smooth scroll back to the start
+                        // After animation, silently reset to actual first slide
                         setTimeout(() => {
-                            gallery.scrollTo({ left: 0, behavior: 'smooth' });
-                        }, 50);
+                            gallery.scrollTo({ left: 0, behavior: 'auto' });
+                            this.currentSlide = 0;
+                            this.isTransitioning = false;
+                        }, 500);
                     } else {
-                        // Normal scroll behavior
-                        gallery.scrollTo({
-                            left: this.currentSlide * slideWidth,
-                            behavior: 'smooth'
-                        });
+                        this.currentSlide++;
+                        gallery.scrollBy({ left: slideWidth, behavior: 'smooth' });
+                        setTimeout(() => {
+                            this.isTransitioning = false;
+                        }, 500);
+                    }
+                },
+
+                // Handles backward movement (left arrow)
+                prev() {
+                    if (this.isTransitioning) return;
+                    this.isTransitioning = true;
+                    
+                    const gallery = this.$refs.projectGallery;
+                    const slideWidth = gallery.clientWidth;
+
+                    if (this.currentSlide === 0) {
+                        // At first slide: scroll backward to the cloned last slide
+                        gallery.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+                        
+                        // After animation, silently reset to actual last slide
+                        setTimeout(() => {
+                            gallery.scrollTo({ left: slideWidth * (this.totalSlides - 1), behavior: 'auto' });
+                            this.currentSlide = this.totalSlides - 1;
+                            this.isTransitioning = false;
+                        }, 500);
+                    } else {
+                        this.currentSlide--;
+                        gallery.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+                        setTimeout(() => {
+                            this.isTransitioning = false;
+                        }, 500);
                     }
                 }
-                <!-- Left Navigation Arrow -->
+            }">
+                <!-- Navigation Arrows -->
                 <button class="absolute -left-4 lg:-left-8 top-1/2 transform -translate-y-1/2 z-10 
                              bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 
                              transition-colors hidden md:block focus:outline-none focus:ring-2 
@@ -436,7 +464,6 @@
                     </svg>
                 </button>
 
-                <!-- Right Navigation Arrow -->
                 <button class="absolute -right-4 lg:-right-8 top-1/2 transform -translate-y-1/2 z-10 
                              bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 
                              transition-colors hidden md:block focus:outline-none focus:ring-2 
@@ -448,13 +475,20 @@
                 </button>
 
                 <!-- Project Cards Container -->
+                <!-- We use overflow-hidden to hide the cloned slides until needed -->
                 <div class="flex overflow-hidden hide-scrollbar" x-ref="projectGallery">
+                    <!-- Clone of Last Slide (for smooth backward transition) -->
+                    <div class="flex-none w-full flex gap-8">
+                        <!-- Insert cloned content of your last two cards here -->
+                    </div>
+
                     <!-- First Slide (Cards 1 & 2) -->
                     <div class="flex-none w-full flex gap-8">
                         <!-- Card 1: Contrôle PV Thermique -->
                         <div class="w-1/2" data-aos="fade-up">
                             <div class="bg-white rounded-xl shadow-lg overflow-hidden 
                                       transform transition-all duration-300 hover:shadow-xl h-full">
+                                <!-- Image section -->
                                 <div class="relative h-64 overflow-hidden group cursor-pointer"
                                      @click="window.open('images/Controle_PVthermique.pdf', '_blank')">
                                     <img src="images/GE_retrofit.jpg" alt="Contrôle PV Thermique" 
@@ -478,6 +512,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- Content section -->
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-asp-blue mb-3">
                                         Contrôle PV Thermique
@@ -512,6 +547,7 @@
                         <div class="w-1/2" data-aos="fade-up">
                             <div class="bg-white rounded-xl shadow-lg overflow-hidden 
                                       transform transition-all duration-300 hover:shadow-xl h-full">
+                                <!-- Image section -->
                                 <div class="relative h-64 overflow-hidden group cursor-pointer"
                                      @click="window.open('images/Heistal_Togo.pdf', '_blank')">
                                     <img src="images/PV_Togo.jpg" alt="Installation PV Togo" 
@@ -535,6 +571,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- Content section -->
                                 <div class="p-6">
                                     <h3 class="text-xl font-bold text-asp-blue mb-3">
                                         Installation PV Togo
@@ -568,25 +605,12 @@
 
                     <!-- Second Slide (Cards 3 & 4) -->
                     <div class="flex-none w-full flex gap-8">
-                        <!-- Card 3: Repeat of PV Thermique -->
-                        <div class="w-1/2" data-aos="fade-up">
-                            <!-- Copy content from Card 1 -->
-                            <div class="bg-white rounded-xl shadow-lg overflow-hidden 
-                                      transform transition-all duration-300 hover:shadow-xl h-full">
-                                <!-- ... (same content as Card 1) ... -->
-                                <!-- Copy the entire content structure of Card 1 here -->
-                            </div>
-                        </div>
+                        <!-- Copy Card 1 and Card 2 structure here -->
+                    </div>
 
-                        <!-- Card 4: Repeat of PV Togo -->
-                        <div class="w-1/2" data-aos="fade-up">
-                            <!-- Copy content from Card 2 -->
-                            <div class="bg-white rounded-xl shadow-lg overflow-hidden 
-                                      transform transition-all duration-300 hover:shadow-xl h-full">
-                                <!-- ... (same content as Card 2) ... -->
-                                <!-- Copy the entire content structure of Card 2 here -->
-                            </div>
-                        </div>
+                    <!-- Clone of First Slide (for smooth forward transition) -->
+                    <div class="flex-none w-full flex gap-8">
+                        <!-- Insert cloned content of your first two cards here -->
                     </div>
                 </div>
 
