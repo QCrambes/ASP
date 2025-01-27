@@ -424,7 +424,7 @@
     
                 <!-- Slides Container -->
                 <div class="relative overflow-hidden">
-                    <div class="flex transition-transform duration-500 ease-in-out"
+                    <div class="flex transition-transform duration-1000 ease-in-out"
                          :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
                         
                         <!-- First Slide (Cards 1 & 2) -->
@@ -691,6 +691,328 @@
             }
         </style>
     </section>
+
+
+
+
+
+        
+
+
+    <section id="references" class="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
+                Projets de Référence TEST FOR REAL
+            </h2>
+    
+            <div class="relative" x-data="{ 
+                currentSlide: 0,
+                totalSlides: 2,
+                moveSlide(direction) {
+                    this.currentSlide = (this.currentSlide + direction + this.totalSlides) % this.totalSlides;
+                }
+            }">
+                <!-- Navigation Arrows -->
+                <button @click="moveSlide(-1)" 
+                        class="absolute -left-4 lg:-left-8 top-1/2 transform -translate-y-1/2 z-10 
+                               bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 
+                               transition-colors hidden md:block focus:outline-none focus:ring-2 
+                               focus:ring-asp-blue">
+                    <svg class="w-6 h-6 text-asp-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+    
+                <button @click="moveSlide(1)" 
+                        class="absolute -right-4 lg:-right-8 top-1/2 transform -translate-y-1/2 z-10 
+                               bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 
+                               transition-colors hidden md:block focus:outline-none focus:ring-2 
+                               focus:ring-asp-blue">
+                    <svg class="w-6 h-6 text-asp-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+    
+                <!-- Slides Container -->
+                <div class="relative overflow-hidden">
+                    <div class="flex transition-transform duration-1000 ease-in-out"
+                         :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
+                        
+                        <!-- First Slide (Cards 1 & 2) -->
+                        <div class="flex-none w-full flex gap-8">
+                            <!-- Card 1: Contrôle PV Thermique -->
+                            <div class="w-1/2" data-aos="fade-up">
+                                <div class="bg-white rounded-xl shadow-lg overflow-hidden 
+                                          transform transition-all duration-300 hover:shadow-xl h-full">
+                                    <!-- Image section -->
+                                    <div class="relative h-64 overflow-hidden group cursor-pointer"
+                                         @click="window.open('images/Controle_PVthermique.pdf', '_blank')">
+                                        <img src="images/GE_retrofit.jpg" alt="Contrôle PV Thermique" 
+                                             class="w-full h-full object-cover transition-transform duration-500 
+                                                    group-hover:scale-105">
+                                        <div class="absolute inset-0 bg-gray-900 bg-opacity-0 
+                                                    group-hover:bg-opacity-75 transition-all duration-300">
+                                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                                                <div class="bg-white rounded-full p-4 mx-auto mb-4 
+                                                            w-16 h-16 flex items-center justify-center">
+                                                    <svg class="w-8 h-8 text-asp-blue" fill="none" 
+                                                         stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" 
+                                                              stroke-width="1.5" 
+                                                              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                                    </svg>
+                                                </div>
+                                                <span class="text-white text-lg font-semibold">
+                                                    Consulter le Projet
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Content section -->
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold text-asp-blue mb-3">
+                                            Contrôle PV Thermique
+                                        </h3>
+                                        <p class="text-gray-600 mb-4">
+                                            Optimisation et contrôle d'une centrale hybride PV-Thermique, 
+                                            maximisant l'efficacité énergétique.
+                                        </p>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center">
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
+                                                     stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" 
+                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                </svg>
+                                                <span class="text-gray-700">1.2 MW PV + 800 kW Thermique</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
+                                                     stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" 
+                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                </svg>
+                                                <span class="text-gray-700">Réduction carburant : 40%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <!-- Card 2: Installation PV Togo -->
+                            <div class="w-1/2" data-aos="fade-up">
+                                <div class="bg-white rounded-xl shadow-lg overflow-hidden 
+                                          transform transition-all duration-300 hover:shadow-xl h-full">
+                                    <!-- Image section -->
+                                    <div class="relative h-64 overflow-hidden group cursor-pointer"
+                                         @click="window.open('images/Heistal_Togo.pdf', '_blank')">
+                                        <img src="images/PV_Togo.jpg" alt="Installation PV Togo" 
+                                             class="w-full h-full object-cover transition-transform duration-500 
+                                                    group-hover:scale-105">
+                                        <div class="absolute inset-0 bg-gray-900 bg-opacity-0 
+                                                    group-hover:bg-opacity-75 transition-all duration-300">
+                                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                                                <div class="bg-white rounded-full p-4 mx-auto mb-4 
+                                                            w-16 h-16 flex items-center justify-center">
+                                                    <svg class="w-8 h-8 text-asp-blue" fill="none" 
+                                                         stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" 
+                                                              stroke-width="1.5" 
+                                                              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                                    </svg>
+                                                </div>
+                                                <span class="text-white text-lg font-semibold">
+                                                    Consulter le Projet
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Content section -->
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold text-asp-blue mb-3">
+                                            Installation PV Togo
+                                        </h3>
+                                        <p class="text-gray-600 mb-4">
+                                            Centrale solaire hybride innovante au Togo, combinant production 
+                                            solaire et stockage énergétique.
+                                        </p>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center">
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
+                                                     stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" 
+                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                </svg>
+                                                <span class="text-gray-700">850 kWc + 500 kW stockage</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
+                                                     stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" 
+                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                </svg>
+                                                <span class="text-gray-700">1,380 MWh/an</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Second Slide (Cards 3 & 4) -->
+                        <div class="flex-none w-full flex gap-8">
+                            <!-- Card 3: Copie de Card 1 pour l'exemple -->
+                            <div class="w-1/2" data-aos="fade-up">
+                                <div class="bg-white rounded-xl shadow-lg overflow-hidden 
+                                          transform transition-all duration-300 hover:shadow-xl h-full">
+                                    <!-- Image section -->
+                                    <div class="relative h-64 overflow-hidden group cursor-pointer"
+                                         @click="window.open('images/Controle_PVthermique.pdf', '_blank')">
+                                        <img src="images/GE_retrofit.jpg" alt="Contrôle PV Thermique" 
+                                             class="w-full h-full object-cover transition-transform duration-500 
+                                                    group-hover:scale-105">
+                                        <div class="absolute inset-0 bg-gray-900 bg-opacity-0 
+                                                    group-hover:bg-opacity-75 transition-all duration-300">
+                                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                                                <div class="bg-white rounded-full p-4 mx-auto mb-4 
+                                                            w-16 h-16 flex items-center justify-center">
+                                                    <svg class="w-8 h-8 text-asp-blue" fill="none" 
+                                                         stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" 
+                                                              stroke-width="1.5" 
+                                                              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                                    </svg>
+                                                </div>
+                                                <span class="text-white text-lg font-semibold">
+                                                    Consulter le Projet
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Content section -->
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold text-asp-blue mb-3">
+                                            CARD 3 Contrôle PV Thermique
+                                        </h3>
+                                        <p class="text-gray-600 mb-4">
+                                            Optimisation et contrôle d'une centrale hybride PV-Thermique, 
+                                            maximisant l'efficacité énergétique.
+                                        </p>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center">
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
+                                                     stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" 
+                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                </svg>
+                                                <span class="text-gray-700">1.2 MW PV + 800 kW Thermique</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
+                                                     stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" 
+                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                </svg>
+    
+                                                <span class="text-gray-700">Réduction carburant : 40%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <!-- Card 4: Copie de Card 2 pour l'exemple -->
+                            <div class="w-1/2" data-aos="fade-up">
+                                <div class="bg-white rounded-xl shadow-lg overflow-hidden 
+                                          transform transition-all duration-300 hover:shadow-xl h-full">
+                                    <!-- Image section -->
+                                    <div class="relative h-64 overflow-hidden group cursor-pointer"
+                                         @click="window.open('images/Heistal_Togo.pdf', '_blank')">
+                                        <img src="images/PV_Togo.jpg" alt="Installation PV Togo" 
+                                             class="w-full h-full object-cover transition-transform duration-500 
+                                                    group-hover:scale-105">
+                                        <div class="absolute inset-0 bg-gray-900 bg-opacity-0 
+                                                    group-hover:bg-opacity-75 transition-all duration-300">
+                                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                                                <div class="bg-white rounded-full p-4 mx-auto mb-4 
+                                                            w-16 h-16 flex items-center justify-center">
+                                                    <svg class="w-8 h-8 text-asp-blue" fill="none" 
+                                                         stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" 
+                                                              stroke-width="1.5" 
+                                                              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                                    </svg>
+                                                </div>
+                                                <span class="text-white text-lg font-semibold">
+                                                    Consulter le Projet
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Content section -->
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold text-asp-blue mb-3">
+                                            CARD 4 Installation PV Togo
+                                        </h3>
+                                        <p class="text-gray-600 mb-4">
+                                            Centrale solaire hybride innovante au Togo, combinant production 
+                                            solaire et stockage énergétique.
+                                        </p>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center">
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
+                                                     stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" 
+                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                </svg>
+                                                <span class="text-gray-700">850 kWc + 500 kW stockage</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
+                                                     stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" 
+                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                </svg>
+                                                <span class="text-gray-700">1,380 MWh/an</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Mobile Scroll Indicator -->
+                <div class="flex justify-center mt-6 md:hidden">
+                    <p class="text-sm text-gray-500">
+                        Faites défiler horizontalement pour découvrir plus de projets
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+        <style>
+            .hide-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+        </style>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
         
     <!-- Project Files Section -->
     <section id="projets" class="py-20 bg-white" x-data="{ activeSlide: 0 }">
