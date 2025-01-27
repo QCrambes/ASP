@@ -410,7 +410,7 @@
                         this.currentSlide = 2;
                         this.$refs.slideTrack.style.transform = `translateX(calc(-${2 * 100}% - ${2 * 2}rem)) scale(0.98)`;
                         
-                        // Add a longer pause (1500ms) before wrapping around
+                        // Add a longer pause (1000ms) before wrapping around
                         setTimeout(() => {
                             // Show visual feedback with scale
                             this.$refs.slideTrack.style.transform = `translateX(calc(-${2 * 100}% - ${2 * 2}rem)) scale(0.95)`;
@@ -428,8 +428,8 @@
                                         this.isTransitioning = false;
                                     }, 1000);
                                 }, 100);
-                            }, 800); // Increased pause
-                        }, 1500); // Longer initial pause of wrapping around
+                            }, 500); // Increased pause
+                        }, 1000); // Longer initial pause of wrapping around
                     } else {
                         this.currentSlide++;
                         setTimeout(() => this.isTransitioning = false, 1000);
@@ -459,8 +459,8 @@
                                         this.isTransitioning = false;
                                     }, 1000);
                                 }, 100);
-                            }, 800); // Increased pause
-                        }, 1500); // Longer initial pause
+                            }, 500); // Increased pause
+                        }, 1000); // Longer initial pause
                     } else {
                         this.currentSlide--;
                         setTimeout(() => this.isTransitioning = false, 1000);
