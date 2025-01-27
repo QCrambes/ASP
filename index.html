@@ -408,43 +408,52 @@
                     this.isTransitioning = true;
                     
                     if (this.currentSlide === 1) {
-                        this.currentSlide = 2; // Aller vers le clone
+                        this.currentSlide = 2;
+                        this.$refs.slideTrack.style.transform = `translateX(-${2 * 100}%) scale(0.98)`;
+                        
                         setTimeout(() => {
-                            this.$refs.slideTrack.style.transition = 'none';
-                            this.currentSlide = 0;
                             setTimeout(() => {
-                                this.$refs.slideTrack.style.transition = 'transform 1000ms ease-in-out';
-                                this.isTransitioning = false;
-                            }, 50);
+                                this.$refs.slideTrack.style.transition = 'none';
+                                this.currentSlide = 0;
+                                this.$refs.slideTrack.style.transform = `translateX(0) scale(1)`;
+                                setTimeout(() => {
+                                    this.$refs.slideTrack.style.transition = 'transform 1000ms ease-in-out';
+                                    this.isTransitioning = false;
+                                }, 50);
+                            }, 500); // Pause ajoutée
                         }, 1000);
                     } else {
                         this.currentSlide++;
                         setTimeout(() => this.isTransitioning = false, 1000);
                     }
-                },              
-                 prev() {
+                },
+                
+                prev() {
                     if (this.isTransitioning) return;
                     this.isTransitioning = true;
                     
                     if (this.currentSlide === 0) {
-                        // D'abord désactiver la transition
-                        this.$refs.slideTrack.style.transition = 'none';
-                        this.currentSlide = 2; // Aller au clone instantanément
+                        // Appliquer l'effet de scale
+                        this.$refs.slideTrack.style.transform = `translateX(0) scale(0.98)`;
                         
-                        // Réactiver la transition et aller à la dernière slide
                         setTimeout(() => {
-                            this.$refs.slideTrack.style.transition = 'transform 1000ms ease-in-out';
-                            this.currentSlide = 1;
+                            this.$refs.slideTrack.style.transition = 'none';
+                            this.currentSlide = 2;
+                            
                             setTimeout(() => {
-                                this.isTransitioning = false;
-                            }, 1000);
+                                this.$refs.slideTrack.style.transition = 'transform 1000ms ease-in-out';
+                                this.currentSlide = 1;
+                                this.$refs.slideTrack.style.transform = `translateX(-${1 * 100}%) scale(1)`;
+                                setTimeout(() => {
+                                    this.isTransitioning = false;
+                                }, 1000);
+                            }, 500); // Même pause que pour next()
                         }, 50);
                     } else {
                         this.currentSlide--;
                         setTimeout(() => this.isTransitioning = false, 1000);
                     }
                 }
-
             }">
                 
                 <!-- Navigation Arrows -->
@@ -470,7 +479,7 @@
     
                 <!-- Slides Container -->
                 <div class="relative overflow-hidden">
-                    <div class="flex transition-transform duration-1000 ease-in-out"
+                    <div class="flex transition-transform duration-1000 ease-in-out space-x-8"
                          x-ref="slideTrack"
                          :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
                         
