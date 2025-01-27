@@ -398,7 +398,6 @@
             <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
                 Projets de Référence
             </h2>
-    
             <div class="relative" x-data="{ 
                 currentSlide: 0,
                 isTransitioning: false,
@@ -409,19 +408,28 @@
                     
                     if (this.currentSlide === 1) {
                         this.currentSlide = 2;
-                        this.$refs.slideTrack.style.transform = `translateX(-${2 * 100}%) scale(0.98)`;
+                        this.$refs.slideTrack.style.transform = `translateX(calc(-${2 * 100}% - ${2 * 2}rem)) scale(0.98)`;
                         
+                        // Add a longer pause (1500ms) before wrapping around
                         setTimeout(() => {
+                            // Show visual feedback with scale
+                            this.$refs.slideTrack.style.transform = `translateX(calc(-${2 * 100}% - ${2 * 2}rem)) scale(0.95)`;
+                            
                             setTimeout(() => {
                                 this.$refs.slideTrack.style.transition = 'none';
                                 this.currentSlide = 0;
-                                this.$refs.slideTrack.style.transform = `translateX(0) scale(1)`;
+                                this.$refs.slideTrack.style.transform = `translateX(0) scale(0.95)`;
+                                
+                                // Add a small pause before the final animation
                                 setTimeout(() => {
                                     this.$refs.slideTrack.style.transition = 'transform 1000ms ease-in-out';
-                                    this.isTransitioning = false;
-                                }, 50);
-                            }, 500); // Pause ajoutée
-                        }, 1000);
+                                    this.$refs.slideTrack.style.transform = `translateX(0) scale(1)`;
+                                    setTimeout(() => {
+                                        this.isTransitioning = false;
+                                    }, 1000);
+                                }, 100);
+                            }, 800); // Increased pause
+                        }, 1500); // Longer initial pause of wrapping around
                     } else {
                         this.currentSlide++;
                         setTimeout(() => this.isTransitioning = false, 1000);
@@ -433,22 +441,26 @@
                     this.isTransitioning = true;
                     
                     if (this.currentSlide === 0) {
-                        // Appliquer l'effet de scale
+                        // Apply scale effect and pause
                         this.$refs.slideTrack.style.transform = `translateX(0) scale(0.98)`;
                         
                         setTimeout(() => {
-                            this.$refs.slideTrack.style.transition = 'none';
-                            this.currentSlide = 2;
+                            this.$refs.slideTrack.style.transform = `translateX(0) scale(0.95)`;
                             
                             setTimeout(() => {
-                                this.$refs.slideTrack.style.transition = 'transform 1000ms ease-in-out';
-                                this.currentSlide = 1;
-                                this.$refs.slideTrack.style.transform = `translateX(-${1 * 100}%) scale(1)`;
+                                this.$refs.slideTrack.style.transition = 'none';
+                                this.currentSlide = 2;
+                                
                                 setTimeout(() => {
-                                    this.isTransitioning = false;
-                                }, 1000);
-                            }, 500); // Même pause que pour next()
-                        }, 50);
+                                    this.$refs.slideTrack.style.transition = 'transform 1000ms ease-in-out';
+                                    this.currentSlide = 1;
+                                    this.$refs.slideTrack.style.transform = `translateX(calc(-${1 * 100}% - ${1 * 2}rem)) scale(1)`;
+                                    setTimeout(() => {
+                                        this.isTransitioning = false;
+                                    }, 1000);
+                                }, 100);
+                            }, 800); // Increased pause
+                        }, 1500); // Longer initial pause
                     } else {
                         this.currentSlide--;
                         setTimeout(() => this.isTransitioning = false, 1000);
@@ -479,9 +491,10 @@
     
                 <!-- Slides Container -->
                 <div class="relative overflow-hidden">
-                    <div class="flex transition-transform duration-1000 ease-in-out space-x-8"
+                    <div class="flex transition-transform duration-1000 ease-in-out"
                          x-ref="slideTrack"
-                         :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
+                         :style="{ transform: `translateX(calc(-${currentSlide * 100}% - ${currentSlide * 2}rem))` }">
+
                         
                         <!-- First Slide (Cards 1 & 2) -->
                         <div class="flex-none w-full flex gap-8">
