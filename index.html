@@ -396,7 +396,22 @@
                 currentSlide: 0,
                 totalSlides: 2,
                 isTransitioning: false,
-    
+                init() {
+                    // Créer le clone de la dernière slide
+                    const lastSlide = this.$refs.slide2.cloneNode(true);
+                    this.$refs.projectGallery.insertBefore(lastSlide, this.$refs.slide1);
+                    
+                    // Créer le clone de la première slide
+                    const firstSlide = this.$refs.slide1.cloneNode(true);
+                    this.$refs.projectGallery.appendChild(firstSlide);
+                    
+                    // Positionner sur les cartes 1&2
+                    const slideWidth = this.$refs.projectGallery.clientWidth;
+                    this.$refs.projectGallery.scrollTo({ 
+                        left: slideWidth,
+                        behavior: 'auto'
+                    });
+                },
                 next() {
                     if (this.isTransitioning) return;
                     this.isTransitioning = true;
@@ -477,7 +492,7 @@
                 <!-- Project Cards Container -->
                 <div class="flex overflow-hidden" x-ref="projectGallery">
                     <!-- First Slide (Cards 1 & 2) -->
-                    <div class="flex-none w-full flex gap-8">
+                    <div class="flex-none w-full flex gap-8" x-ref="slide1>
                         <div class="w-1/2" data-aos="fade-up">
                             <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl h-full">
                                 <!-- Image section -->
@@ -567,7 +582,7 @@
                     </div>
     
                     <!-- Second Slide (Currently duplicates of Cards 1 & 2) -->
-                    <div class="flex-none w-full flex gap-8">
+                    <div class="flex-none w-full flex gap-8" x-ref="slide2>
                         <div class="w-1/2" data-aos="fade-up">
                             <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl h-full">
                                 <!-- Image section -->
