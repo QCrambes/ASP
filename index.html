@@ -101,14 +101,16 @@
     </div>
 
     <!-- Fixed Navigation -->
+    
     <nav class="fixed w-full bg-white shadow-lg z-40">
         <div class="container mx-auto px-4 py-5 md:py-6">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <img src="images/ASP_logo_big_transp.png" alt="ASP Logo" 
-                         class="w-full max-h-20 object-contain">
+                    <a href="#" class="cursor-pointer">
+                        <img src="images/ASP_logo_big_transp.png" alt="ASP Logo" 
+                             class="w-full max-h-20 object-contain">
+                    </a>
                 </div>
-                
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#qui-sommes-nous" class="text-asp-blue hover:text-asp-green transition-colors">
@@ -161,7 +163,10 @@
              @click.stop>
             <div class="p-6">
                 <div class="flex items-center justify-between mb-8">
-                    <img src="images/ASP_blue_transp.png" alt="ASP Logo" class="w-full max-h-40 object-contain">
+                    <a href="#" @click="mobileMenuOpen = false" class="cursor-pointer">
+                        <img src="images/ASP_blue_transp.png" alt="ASP Logo" 
+                             class="w-full max-h-40 object-contain">
+                    </a>
                     <button @click="mobileMenuOpen = false" class="text-gray-500">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
