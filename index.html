@@ -25,7 +25,7 @@
         /* Custom Styles */
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 120px; 
+            scroll-padding-top: 100px; 
 
         }
         @media (min-width: 768px) {
@@ -2033,64 +2033,70 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <!-- Footer -->
-    <footer class="bg-gray-50 pt-16 pb-8 border-t border-gray-200">
+    <footer class="bg-gray-50 pt-16 pb-6">
         <div class="container mx-auto px-4">
-            <!-- Footer Content Grid -->
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <!-- Main Footer Content -->
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
                 <!-- Company Information -->
-                <div class="md:max-w-md">
-                    <img src="images/ASP_logo_big_transp.png" alt="ASP Logo" class="w-full max-h-20 object-contain">
-                    <p class="text-gray-600 mb-6">
+                <div class="max-w-md">
+                    <img src="images/ASP_logo_big_transp.png" alt="ASP Logo" 
+                         class="w-48 mb-6 object-contain">
+                    <p class="text-gray-600 text-lg leading-relaxed">
                         Expert en solutions solaires hybrides complexes, African Solar Partners 
                         accompagne les projets énergétiques à travers l'Afrique avec une expertise 
                         technique pointue et un engagement pour l'excellence.
                     </p>
                 </div>
+    
                 <!-- Contact Information -->
-                <div class="md:ml-auto">
-                    <h3 class="text-lg font-bold text-asp-blue mb-4">Contact</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-asp-blue mt-1 mr-3" fill="none" 
-                                 stroke="currentColor" viewBox="0 0 24 24">
+                <div class="md:ml-auto md:max-w-sm">
+                    <h3 class="text-xl font-bold text-asp-blue mb-8">Contact</h3>
+                    <ul class="space-y-6">
+                        <!-- Location -->
+                        <li class="flex items-start group">
+                            <svg class="w-6 h-6 text-asp-blue mt-1 mr-4 group-hover:text-asp-green transition-colors" 
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
                                       d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
                                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                             </svg>
-                            <div>
-                                <p class="text-gray-600">Aix-en-Provence</p>
-                                <p class="text-gray-600">France</p>
+                            <div class="group-hover:text-asp-green transition-colors">
+                                <p class="text-gray-600 text-lg">Aix-en-Provence</p>
+                                <p class="text-gray-600 text-lg">France</p>
                             </div>
                         </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-asp-blue mt-1 mr-3" fill="none" 
-                                 stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                            </svg>
+    
+                        <!-- Email -->
+                        <li class="group">
+                            <div class="flex items-start mb-2">
+                                <svg class="w-6 h-6 text-asp-blue mt-1 mr-4 group-hover:text-asp-green transition-colors" 
+                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                <p class="text-gray-600 text-lg">Une demande spécifique?</p>
+                            </div>
                             <a href="mailto:q.crambes@africansolarpartners.com" 
-                               class="text-gray-600 hover:text-asp-green transition-colors">
+                               class="block ml-10 text-asp-blue text-lg font-medium hover:text-asp-green transition-colors">
                                 q.crambes@africansolarpartners.com
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-
+    
             <!-- Footer Bottom -->
-            <div class="pt-8 border-t border-gray-200">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-600 text-sm">
+            <div class="pt-6 border-t border-gray-200">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <p class="text-gray-500 text-sm">
                         © 2025 African Solar Partners. Tous droits réservés.
                     </p>
-                    <div class="flex space-x-6 mt-4 md:mt-0">
-                        <a href="#" class="text-gray-600 hover:text-asp-green text-sm">
+                    <div class="flex space-x-8">
+                        <a href="#" class="text-gray-500 hover:text-asp-green text-sm transition-colors">
                             Mentions Légales
                         </a>
-                        <a href="#" class="text-gray-600 hover:text-asp-green text-sm">
+                        <a href="#" class="text-gray-500 hover:text-asp-green text-sm transition-colors">
                             Politique de Confidentialité
                         </a>
                     </div>
