@@ -106,7 +106,7 @@
         <div class="container mx-auto px-4 py-5 md:py-6">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <a href="#" class="cursor-pointer">
+                    <a href="#hero" class="cursor-pointer">
                         <img src="images/ASP_logo_big_transp.png" alt="ASP Logo" 
                              class="w-full max-h-20 object-contain">
                     </a>
@@ -163,7 +163,7 @@
              @click.stop>
             <div class="p-6">
                 <div class="flex items-center justify-between mb-8">
-                    <a href="#" @click="mobileMenuOpen = false" class="cursor-pointer">
+                    <a href="#hero" @click="mobileMenuOpen = false" class="cursor-pointer">
                         <img src="images/ASP_blue_transp.png" alt="ASP Logo" 
                              class="w-full max-h-40 object-contain">
                     </a>
@@ -213,7 +213,7 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen"> <!-- Removed pt-20 from here -->
+    <section id="hero" class="relative min-h-screen"> <!-- Removed pt-20 from here -->
         <!-- Background Image Container -->
         <div class="absolute top-20 inset-x-0 bottom-0"> <!-- Changed inset-0 to top-20 and kept horizontal/bottom -->
             <img src="images/PV_Naya_front_cover.jpg" alt="Solar Installation" 
