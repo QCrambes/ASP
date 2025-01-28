@@ -393,15 +393,18 @@
             <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
                 Projets de Référence - DOES THIS WORK?
             </h2>
-    
             <div class="relative" x-data="{ 
                 currentSlide: 0,
                 isTransitioning: false,
                 
+                init() {
+                    if (window.innerWidth < 768) {
+                        this.isTransitioning = true;
+                    }
+                },
+                
                 next() {
-                    if (this.isTransitioning) return;
-                    this.isTransitioning = true;
-                    
+                    if (this.isTransitioning || window.innerWidth < 768) return;
                     if (this.currentSlide === 1) {
                         this.currentSlide = 2;
                         this.$refs.slideTrack.style.transform = `translateX(-${2 * 100}%) scale(0.98)`;
@@ -415,7 +418,7 @@
                                     this.$refs.slideTrack.style.transition = 'transform 1000ms ease-in-out';
                                     this.isTransitioning = false;
                                 }, 50);
-                            }, 500); // Pause ajoutée
+                            }, 500);
                         }, 1000);
                     } else {
                         this.currentSlide++;
@@ -424,11 +427,8 @@
                 },
                 
                 prev() {
-                    if (this.isTransitioning) return;
-                    this.isTransitioning = true;
-                    
+                    if (this.isTransitioning || window.innerWidth < 768) return;
                     if (this.currentSlide === 0) {
-                        // Appliquer l'effet de scale
                         this.$refs.slideTrack.style.transform = `translateX(0) scale(0.98)`;
                         
                         setTimeout(() => {
@@ -442,14 +442,15 @@
                                 setTimeout(() => {
                                     this.isTransitioning = false;
                                 }, 1000);
-                            }, 500); // Même pause que pour next()
+                            }, 500);
                         }, 50);
                     } else {
                         this.currentSlide--;
                         setTimeout(() => this.isTransitioning = false, 1000);
                     }
                 }
-            }">
+            }">    
+              
                 
                 <!-- Navigation Arrows -->
                 <button @click="prev" 
@@ -473,9 +474,10 @@
                 </button>
     
                 <!-- Slides Container -->
-                <div class="relative overflow-hidden">
-                    <div class="flex transition-transform duration-1000 ease-in-out"
+                <div class="relative overflow-hidden md:overflow-hidden">
+                    <div class="flex transition-transform duration-1000 ease-in-out mobile-scroll"
                          x-ref="slideTrack"
+                         :class="{ 'md:transform': true }"
                          :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
                         
                         <!-- First Slide (Cards 1 & 2) -->
@@ -859,6 +861,17 @@
             }
             .hide-scrollbar::-webkit-scrollbar {
                 display: none;
+            }
+                /* Add these new mobile styles */
+            @media (max-width: 768px) {
+                .mobile-scroll {
+                    scroll-snap-type: x mandatory;
+                    overflow-x: auto;
+                    scroll-behavior: smooth;
+                }
+                .mobile-scroll > div {
+                    scroll-snap-align: start;
+                }
             }
         </style>
     </section>
