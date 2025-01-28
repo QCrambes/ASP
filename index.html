@@ -25,8 +25,14 @@
         /* Custom Styles */
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 120px; 
+
         }
-        
+        @media (min-width: 768px) {
+            html {
+                scroll-padding-top: 140px; /* Slightly larger for desktop due to md:py-6 */
+            }
+        }
         /* Project Slider Styles */
         .project-slider {
             scroll-snap-type: x mandatory;
@@ -208,8 +214,8 @@
                  class="w-full h-full object-cover">
         </div>
         
-        <div class="relative container mx-auto px-4 text-center h-full">
-            <div class="mt-16 flex flex-col min-h-[500px]" data-aos="fade-up">
+        <div class="relative container mx-auto px-4 text-center h-full flex items-center">
+            <div class="w-full flex flex-col items-center justify-center min-h-[500px]" data-aos="fade-up">
                 
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8">
                     Votre vision énergétique, notre expertise hybride
@@ -218,11 +224,11 @@
                 <p class="text-xl md:text-2xl font-bold text-white mb-12 max-w-3xl mx-auto">
                     Une maitrise globale de solutions énergétiques complexes, de l'étude à la mise en service.
                 </p>
-                <img src="images/ASP_logo_white_transp.png" alt="ASP Logo" 
-                     class="mx-auto w-96 md:w-[48rem] mb-12">
                 
-                <div class="mt-8">
-                    
+                <img src="images/ASP_logo_white_transp.png" alt="ASP Logo" 
+                     class="mx-auto w-80 md:w-[40rem] mb-16">
+                
+                <div>
                     <a href="#contact" 
                        class="inline-block bg-asp-blue text-white px-8 py-4 rounded-lg 
                               text-lg font-semibold hover:bg-asp-green transition-colors">
@@ -2021,12 +2027,13 @@
     </section>
 
     <!-- Footer -->
+    <!-- Footer -->
     <footer class="bg-gray-50 pt-16 pb-8 border-t border-gray-200">
         <div class="container mx-auto px-4">
             <!-- Footer Content Grid -->
-            <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
                 <!-- Company Information -->
-                <div class="col-span-2">
+                <div class="md:max-w-md">
                     <img src="images/ASP_logo_big_transp.png" alt="ASP Logo" class="w-full max-h-20 object-contain">
                     <p class="text-gray-600 mb-6">
                         Expert en solutions solaires hybrides complexes, African Solar Partners 
@@ -2034,9 +2041,8 @@
                         technique pointue et un engagement pour l'excellence.
                     </p>
                 </div>
-
                 <!-- Contact Information -->
-                <div>
+                <div class="md:ml-auto">
                     <h3 class="text-lg font-bold text-asp-blue mb-4">Contact</h3>
                     <ul class="space-y-4">
                         <li class="flex items-start">
