@@ -1425,19 +1425,48 @@
         </div>
     </section>
     
-    <!-- Marques et Produits Section -->
-    <!-- This section showcases technical partnerships using a grid layout for visual balance
-         and categorizes products by their technical function rather than just by brand -->
-    <section id="marques" class="py-20 bg-gray-50">
+    <!-- Marques et Produits Section DESKTOP -->
+    <section id="marques" class="py-20 bg-gray-50 hidden md:block">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
                 Partenaires Technologiques
             </h2>
-
-            <!-- Technical Categories Grid -->
-            <!-- Using a three-column grid to organize products by technical function
-                 Each category includes relevant product details and specifications -->
+    
             <div class="grid md:grid-cols-3 gap-8">
+                <!-- Control Systems Category - Maintenant en premier -->
+                <div class="bg-white rounded-lg shadow-lg p-8" data-aos="fade-up">
+                    <h3 class="text-xl font-bold text-asp-blue mb-6">
+                        Systèmes de Contrôle
+                    </h3>
+                    <div class="space-y-8">
+                        <!-- DEIF -->
+                        <div class="group">
+                            <p class="text-gray-700 mb-6">
+                                Leader mondial des systèmes de contrôle pour centrales hybrides, DEIF nous fait confiance pour représenter leur marque dans l'Océan Indien. Cette collaboration exclusive nous permet d'offrir des solutions de contrôle de pointe avec un support technique local.
+                            </p>
+                            <div class="flex items-center justify-between mb-4">
+                                <img src="images/DEIF_logo.png" alt="DEIF" class="h-12 object-contain">
+                                <span class="text-sm font-semibold text-asp-green">Partenaire exclusif</span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                                <h4 class="font-semibold text-asp-blue mb-2">Système de contrôle DEIF</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Interface de contrôle intuitive</li>
+                                    <li>• Support technique certifié</li>
+                                    <li>• Solutions sur mesure garanties</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-asp-blue mb-2">FULL PMS DEIF</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Gestion intelligente de la centrale</li>
+                                    <li>• Système redondant sécurisé</li>
+                                    <li>• Répartition de charge optimisée</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Power Generation Category -->
                 <div class="bg-white rounded-lg shadow-lg p-8" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="text-xl font-bold text-asp-blue mb-6">
@@ -1448,7 +1477,7 @@
                         <div class="group">
                             <div class="flex items-center justify-between mb-4">
                                 <img src="images/JA_SOLAR_logo.png" alt="JA Solar" class="h-12 object-contain">
-                                <span class="text-sm font-semibold text-asp-green">Certified Partner</span>
+                                <span class="text-sm font-semibold text-asp-green"> Partenaire</span>
                             </div>
                             <div class="bg-gray-50 p-4 rounded-lg">
                                 <h4 class="font-semibold text-asp-blue mb-2">Spécifications</h4>
@@ -1464,14 +1493,13 @@
                         <div class="group">
                             <div class="flex items-center justify-between mb-4">
                                 <img src="images/FREEDOMWON_logo.webp" alt="Freedon Won" class="h-12 object-contain">
-                                <span class="text-sm font-semibold text-asp-green">Certified Partner</span>
+                                <span class="text-sm font-semibold text-asp-green">Partenaire</span>
                             </div>
                             <div class="bg-gray-50 p-4 rounded-lg">
                                 <h4 class="font-semibold text-asp-blue mb-2">Applications</h4>
                                 <ul class="text-sm text-gray-600 space-y-1">
                                     <li>• Stockage industrielle</li>
                                     <li>• Batterie lithium</li>
-                                    <li>• Projets utility-scale</li>
                                 </ul>
                             </div>
                         </div>
@@ -1493,9 +1521,9 @@
                             <div class="bg-gray-50 p-4 rounded-lg">
                                 <h4 class="font-semibold text-asp-blue mb-2">Solutions</h4>
                                 <ul class="text-sm text-gray-600 space-y-1">
-                                    <li>• Onduleurs centraux jusqu'à 6.6 MVA</li>
-                                    <li>• Solutions hybrides complètes</li>
-                                    <li>• Monitoring intelligent</li>
+                                    <li>• Rendement maximal certifié</li>
+                                    <li>• Monitoring cloud intégré</li>
+                                    <li>• Diagnostic intelligent avancé</li>
                                 </ul>
                             </div>
                         </div>
@@ -1503,55 +1531,15 @@
                         <!-- Fronius -->
                         <div class="group">
                             <div class="flex items-center justify-between mb-4">
-                                <img src="Fronius_logo.png" alt="Fronius" class="h-12 object-contain">
-                                <span class="text-sm font-semibold text-asp-green">System Partner</span>
+                                <img src="images/Fronius_logo.png" alt="Fronius" class="h-12 object-contain">
+                                <span class="text-sm font-semibold text-asp-green">Partenaire</span>
                             </div>
                             <div class="bg-gray-50 p-4 rounded-lg">
                                 <h4 class="font-semibold text-asp-blue mb-2">Expertise</h4>
                                 <ul class="text-sm text-gray-600 space-y-1">
-                                    <li>• Solutions commerciales intégrées</li>
-                                    <li>• Systèmes de stockage hybrides</li>
-                                    <li>• Gestion intelligente de l'énergie</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Control Systems Category -->
-                <div class="bg-white rounded-lg shadow-lg p-8" data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="text-xl font-bold text-asp-blue mb-6">
-                        Systèmes de Contrôle
-                    </h3>
-                    <div class="space-y-8">
-                        <!-- DEIF -->
-                        <div class="group">
-                            <div class="flex items-center justify-between mb-4">
-                                <img src="images/DEIF_logo.png" alt="DEIF" class="h-12 object-contain">
-                                <span class="text-sm font-semibold text-asp-green">Premium Partner</span>
-                            </div>
-                            <div class="bg-gray-50 p-4 rounded-lg">
-                                <h4 class="font-semibold text-asp-blue mb-2">Contrôle Avancé</h4>
-                                <ul class="text-sm text-gray-600 space-y-1">
-                                    <li>• Automatisation complète</li>
-                                    <li>• Gestion multi-sources</li>
-                                    <li>• Monitoring temps réel</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Victron -->
-                        <div class="group">
-                            <div class="flex items-center justify-between mb-4">
-                                <img src="VICTRON_logo.png" alt="Victron" class="h-12 object-contain">
-                                <span class="text-sm font-semibold text-asp-green">Certified Partner</span>
-                            </div>
-                            <div class="bg-gray-50 p-4 rounded-lg">
-                                <h4 class="font-semibold text-asp-blue mb-2">Solutions</h4>
-                                <ul class="text-sm text-gray-600 space-y-1">
-                                    <li>• Systèmes hybrides complets</li>
-                                    <li>• Gestion de batterie intelligente</li>
-                                    <li>• Communication avancée</li>
+                                    <li>• Interface utilisateur intuitive</li>
+                                    <li>• Smart Grid Ready</li>
+                                    <li>• Service après-vente premium</li>
                                 </ul>
                             </div>
                         </div>
@@ -1570,6 +1558,156 @@
             </div>
         </div>
     </section>
+    <!-- Mobile Marques Section -->
+    <section id="marques-mobile" class="py-20 bg-gray-50 md:hidden" x-data="{ activeSlide: 0 }">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
+                Partenaires Technologiques
+            </h2>
+    
+            <div class="relative" x-data="{ scrollPosition: 0 }">
+                <div class="flex overflow-x-auto hide-scrollbar gap-8 px-4 py-2" 
+                     x-ref="marquesGallery"
+                     style="scroll-snap-type: x mandatory;">
+                    
+                    <!-- DEIF Card -->
+                    <div class="flex-none w-80" style="scroll-snap-align: start;">
+                        <div class="bg-white rounded-lg shadow-lg p-8 relative">
+                            <h3 class="text-xl font-bold text-asp-blue mb-6">
+                                Systèmes de Contrôle
+                            </h3>
+                            <p class="text-gray-700 mb-6">
+                                Leader mondial des systèmes de contrôle pour centrales hybrides, DEIF nous fait confiance pour représenter leur marque dans l'Océan Indien. Cette collaboration exclusive nous permet d'offrir des solutions de contrôle de pointe avec un support technique local.
+                            </p>
+                            <div class="group">
+                                <div class="flex items-center justify-between mb-4">
+                                    <img src="images/DEIF_logo.png" alt="DEIF" class="h-12 object-contain">
+                                    <span class="text-sm font-semibold text-asp-green">Partenaire exclusif</span>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                                    <h4 class="font-semibold text-asp-blue mb-2">Système de contrôle DEIF</h4>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• Interface de contrôle intuitive</li>
+                                        <li>• Support technique certifié</li>
+                                        <li>• Solutions sur mesure garanties</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-asp-blue mb-2">FULL PMS DEIF</h4>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• Gestion intelligente de la centrale</li>
+                                        <li>• Système redondant sécurisé</li>
+                                        <li>• Répartition de charge optimisée</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="text-gray-700 text-sm text-right mt-4">
+                                1/3
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Matériel Solaire Card -->
+                    <div class="flex-none w-80" style="scroll-snap-align: start;">
+                        <div class="bg-white rounded-lg shadow-lg p-8 relative">
+                            <h3 class="text-xl font-bold text-asp-blue mb-6">
+                                Matériel Solaire
+                            </h3>
+                            <div class="space-y-8">
+                                <!-- JA Solar -->
+                                <div class="group">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <img src="images/JA_SOLAR_logo.png" alt="JA Solar" class="h-12 object-contain">
+                                        <span class="text-sm font-semibold text-asp-green">Partenaire certifié</span>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h4 class="font-semibold text-asp-blue mb-2">Spécifications</h4>
+                                        <ul class="text-sm text-gray-600 space-y-1">
+                                            <li>• Modules PV haute efficacité > 21.5%</li>
+                                            <li>• Stockage BESS multi MWh</li>
+                                            <li>• Intégration avec DEIF</li>
+                                        </ul>
+                                    </div>
+                                </div>
+    
+                                <!-- Freedomwon -->
+                                <div class="group">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <img src="images/FREEDOMWON_logo.webp" alt="Freedon Won" class="h-12 object-contain">
+                                        <span class="text-sm font-semibold text-asp-green">Partenaire certifié</span>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h4 class="font-semibold text-asp-blue mb-2">Applications</h4>
+                                        <ul class="text-sm text-gray-600 space-y-1">
+                                            <li>• Stockage industriel</li>
+                                            <li>• Batterie lithium</li>
+                                            <li>• Projets utility-scale</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-gray-700 text-sm text-right mt-4">
+                                2/3
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Électronique de Puissance Card -->
+                    <div class="flex-none w-80" style="scroll-snap-align: start;">
+                        <div class="bg-white rounded-lg shadow-lg p-8 relative">
+                            <h3 class="text-xl font-bold text-asp-blue mb-6">
+                                Électronique de Puissance
+                            </h3>
+                            <div class="space-y-8">
+                                <!-- SMA -->
+                                <div class="group">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <img src="images/SMA_logo.png" alt="SMA" class="h-12 object-contain">
+                                        <span class="text-sm font-semibold text-asp-green">Partenaire solution</span>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h4 class="font-semibold text-asp-blue mb-2">Solutions</h4>
+                                        <ul class="text-sm text-gray-600 space-y-1">
+                                            <li>• Rendement maximal certifié</li>
+                                            <li>• Monitoring cloud intégré</li>
+                                            <li>• Diagnostic intelligent avancé</li>
+                                        </ul>
+                                    </div>
+                                </div>
+    
+                                <!-- Fronius -->
+                                <div class="group">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <img src="images/Fronius_logo.png" alt="Fronius" class="h-12 object-contain">
+                                        <span class="text-sm font-semibold text-asp-green">Partenaire système</span>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h4 class="font-semibold text-asp-blue mb-2">Expertise</h4>
+                                        <ul class="text-sm text-gray-600 space-y-1">
+                                            <li>• Interface utilisateur intuitive</li>
+                                            <li>• Smart Grid Ready</li>
+                                            <li>• Service après-vente premium</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-gray-700 text-sm text-right mt-4">
+                                3/3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Mobile Scroll Indicator -->
+            <div class="flex justify-center mt-6">
+                <p class="text-sm text-gray-500">
+                    Faites défiler horizontalement pour voir tous nos partenaires
+                </p>
+            </div>
+        </div>
+    </section>
+    
 
     <!-- Contact Section -->
     <!-- The contact form is designed to gather detailed technical requirements
