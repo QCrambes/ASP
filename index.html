@@ -293,8 +293,51 @@
     </section>
 
     <!-- Solutions Section -->
-    <section id="solutions" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
+    <section id="solutions" class="py-20 bg-gray-50" 
+        x-data="{ 
+            currentSlide: 0,
+            slideWidth: 0,
+            touchStart: 0,
+            touchEnd: 0,
+            
+            init() {
+                this.slideWidth = this.$refs.slideContainer.offsetWidth;
+                window.addEventListener('resize', () => {
+                    this.slideWidth = this.$refs.slideContainer.offsetWidth;
+                });
+            },
+            
+            handleTouchStart(e) {
+                this.touchStart = e.touches[0].clientX;
+            },
+            
+            handleTouchMove(e) {
+                this.touchEnd = e.touches[0].clientX;
+            },
+            
+            handleTouchEnd() {
+                const swipeThreshold = 50;
+                const diff = this.touchStart - this.touchEnd;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0 && this.currentSlide < 2) {
+                        this.currentSlide++;
+                    } else if (diff < 0 && this.currentSlide > 0) {
+                        this.currentSlide--;
+                    }
+                }
+                
+                this.touchStart = 0;
+                this.touchEnd = 0;
+            }
+        }">        
+        <div class="relative overflow-hidden md:overflow-visible">
+            <div class="flex md:grid md:grid-cols-3 gap-8 transition-transform duration-300 ease-out"
+                x-ref="slideContainer"
+                @touchstart="handleTouchStart"
+                @touchmove="handleTouchMove"
+                @touchend="handleTouchEnd"
+                :style="window.innerWidth < 768 ? `transform: translateX(-${currentSlide * 100}%)` : ''">            
             <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
                 Nos Solutions
             </h2>
@@ -302,7 +345,7 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Solution Card 1 -->
                 <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow 
-                            duration-300" data-aos="fade-up" data-aos-delay="100">
+                            duration-300 w-full flex-shrink-0" data-aos="fade-up" data-aos-delay="100">
                     <div class="h-12 w-12 bg-asp-blue rounded-lg flex items-center justify-center 
                                 mb-6">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" 
@@ -332,7 +375,7 @@
 
                 <!-- Solution Card 2 -->
                 <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow 
-                            duration-300" data-aos="fade-up" data-aos-delay="200">
+                            duration-300 w-full flex-shrink-0" data-aos="fade-up" data-aos-delay="200">
                     <div class="h-12 w-12 bg-asp-blue rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" 
                              viewBox="0 0 24 24">
@@ -361,7 +404,7 @@
 
                 <!-- Solution Card 3 -->
                 <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow 
-                            duration-300" data-aos="fade-up" data-aos-delay="300">
+                            duration-300 w-full flex-shrink-0" data-aos="fade-up" data-aos-delay="300">
                     <div class="h-12 w-12 bg-asp-blue rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" 
                              viewBox="0 0 24 24">
@@ -387,8 +430,18 @@
                         </li>
                     </ul>
                 </div>
+                <!-- Mobile Slide Indicators (ADD THIS HERE) -->
+                <div class="flex justify-center mt-6 space-x-2 md:hidden">
+                    <template x-for="(_, index) in [0,1,2]" :key="index">
+                        <button class="w-2 h-2 rounded-full transition-colors duration-200"
+                            :class="currentSlide === index ? 'bg-asp-blue' : 'bg-gray-300'"
+                            @click="currentSlide = index">
+                        </button>
+                    </template>
+                </div>
             </div>
         </div>
+    </section>
 
 
 
