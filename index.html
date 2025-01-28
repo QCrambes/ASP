@@ -388,23 +388,20 @@
 
 
 
-    <section id="references" class="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section id="references" class="py-20 bg-gradient-to-b from-white to-gray-50 hidden md:block">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
                 Projets de Référence - DOES THIS WORK?
             </h2>
+    
             <div class="relative" x-data="{ 
                 currentSlide: 0,
                 isTransitioning: false,
                 
-                init() {
-                    if (window.innerWidth < 768) {
-                        this.isTransitioning = true;
-                    }
-                },
-                
                 next() {
-                    if (this.isTransitioning || window.innerWidth < 768) return;
+                    if (this.isTransitioning) return;
+                    this.isTransitioning = true;
+                    
                     if (this.currentSlide === 1) {
                         this.currentSlide = 2;
                         this.$refs.slideTrack.style.transform = `translateX(-${2 * 100}%) scale(0.98)`;
@@ -418,7 +415,7 @@
                                     this.$refs.slideTrack.style.transition = 'transform 1000ms ease-in-out';
                                     this.isTransitioning = false;
                                 }, 50);
-                            }, 500);
+                            }, 500); // Pause ajoutée
                         }, 1000);
                     } else {
                         this.currentSlide++;
@@ -427,8 +424,11 @@
                 },
                 
                 prev() {
-                    if (this.isTransitioning || window.innerWidth < 768) return;
+                    if (this.isTransitioning) return;
+                    this.isTransitioning = true;
+                    
                     if (this.currentSlide === 0) {
+                        // Appliquer l'effet de scale
                         this.$refs.slideTrack.style.transform = `translateX(0) scale(0.98)`;
                         
                         setTimeout(() => {
@@ -442,15 +442,14 @@
                                 setTimeout(() => {
                                     this.isTransitioning = false;
                                 }, 1000);
-                            }, 500);
+                            }, 500); // Même pause que pour next()
                         }, 50);
                     } else {
                         this.currentSlide--;
                         setTimeout(() => this.isTransitioning = false, 1000);
                     }
                 }
-            }">    
-              
+            }">
                 
                 <!-- Navigation Arrows -->
                 <button @click="prev" 
@@ -474,10 +473,9 @@
                 </button>
     
                 <!-- Slides Container -->
-                <div class="relative overflow-hidden md:overflow-hidden">
-                    <div class="flex transition-transform duration-1000 ease-in-out mobile-scroll"
+                <div class="relative overflow-hidden">
+                    <div class="flex transition-transform duration-1000 ease-in-out"
                          x-ref="slideTrack"
-                         :class="{ 'md:transform': true }"
                          :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
                         
                         <!-- First Slide (Cards 1 & 2) -->
@@ -513,7 +511,7 @@
                                     <!-- Content section -->
                                     <div class="p-6">
                                         <h3 class="text-xl font-bold text-asp-blue mb-3">
-                                            Carte 1: Contrôle PV Thermique
+                                            Contrôle PV Thermique
                                         </h3>
                                         <p class="text-gray-600 mb-4">
                                             Optimisation et contrôle d'une centrale hybride PV-Thermique, 
@@ -572,7 +570,7 @@
                                     <!-- Content section -->
                                     <div class="p-6">
                                         <h3 class="text-xl font-bold text-asp-blue mb-3">
-                                            Clone cart 2: Installation PV Togo
+                                            Installation PV Togo
                                         </h3>
                                         <p class="text-gray-600 mb-4">
                                             Centrale solaire hybride innovante au Togo, combinant production 
@@ -634,7 +632,7 @@
                                     <!-- Content section -->
                                     <div class="p-6">
                                         <h3 class="text-xl font-bold text-asp-blue mb-3">
-                                            Carte 3: Contrôle PV Thermique
+                                            Contrôle PV Thermique
                                         </h3>
                                         <p class="text-gray-600 mb-4">
                                             Optimisation et contrôle d'une centrale hybride PV-Thermique, 
@@ -694,7 +692,7 @@
                                     <!-- Content section -->
                                     <div class="p-6">
                                         <h3 class="text-xl font-bold text-asp-blue mb-3">
-                                            Carte 4: Installation PV Togo
+                                            Installation PV Togo
                                         </h3>
                                         <p class="text-gray-600 mb-4">
                                             Centrale solaire hybride innovante au Togo, combinant production 
@@ -755,7 +753,7 @@
                                     <!-- Content section -->
                                     <div class="p-6">
                                         <h3 class="text-xl font-bold text-asp-blue mb-3">
-                                            Clone cart 1:Contrôle PV Thermique
+                                            Contrôle PV Thermique
                                         </h3>
                                         <p class="text-gray-600 mb-4">
                                             Optimisation et contrôle d'une centrale hybride PV-Thermique, 
@@ -814,7 +812,7 @@
                                     <!-- Content section -->
                                     <div class="p-6">
                                         <h3 class="text-xl font-bold text-asp-blue mb-3">
-                                            Clone cart 2: Installation PV Togo
+                                            Installation PV Togo
                                         </h3>
                                         <p class="text-gray-600 mb-4">
                                             Centrale solaire hybride innovante au Togo, combinant production 
@@ -862,24 +860,12 @@
             .hide-scrollbar::-webkit-scrollbar {
                 display: none;
             }
-                /* Add these new mobile styles */
-            @media (max-width: 768px) {
-                .mobile-scroll {
-                    scroll-snap-type: x mandatory;
-                    overflow-x: auto;
-                    scroll-behavior: smooth;
-                }
-                .mobile-scroll > div {
-                    scroll-snap-align: start;
-                }
-            }
         </style>
     </section>
 
-
         
     <!-- Project Files Section -->
-    <section id="projets" class="py-20 bg-white" x-data="{ activeSlide: 0 }">
+    <section id="projets" class="py-20 bg-white" x-data="{ activeSlide: 0 } md:hidden">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
                 Nos Projets
