@@ -2333,11 +2333,12 @@
         </div>
     </section>
 
+    {/* Footer component with three-column layout */}
     <footer class="bg-gray-50 pt-16 pb-6">
         <div class="container mx-auto px-4">
-            <!-- Main Footer Content -->
-            <div class="grid md:grid-cols-2 gap-12 mb-16">
-                <!-- Company Information -->
+            {/* Main Footer Content - Three Column Grid */}
+            <div class="grid md:grid-cols-3 gap-12 mb-16">
+                {/* Column 1: Company Information */}
                 <div class="max-w-md">
                     <img src="images/ASP_logo_big_transp.png" alt="ASP Logo" 
                          class="w-48 mb-6 object-contain">
@@ -2348,11 +2349,25 @@
                     </p>
                 </div>
     
-                <!-- Contact Information -->
-                <div class="md:ml-auto md:max-w-sm">
-                    <h3 class="text-xl font-bold text-asp-blue mb-8">Contact</h3>
-                    <ul class="space-y-6">
-                        <!-- Location -->
+                {/* Column 2: Physical Locations */}
+                <div>
+                    <h3 class="text-xl font-bold text-asp-blue mb-8">Nos Adresses</h3>
+                    <ul class="space-y-8">
+                        {/* Headquarters */}
+                        <li class="flex items-start group">
+                            <svg class="w-6 h-6 text-asp-blue mt-1 mr-4 group-hover:text-asp-green transition-colors" 
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                            <div class="group-hover:text-asp-green transition-colors">
+                                <p class="text-gray-800 font-medium mb-1">Siège</p>
+                                <p class="text-gray-600 text-lg">51 B Rue de Miromesnil</p>
+                                <p class="text-gray-600 text-lg">75008 Paris</p>
+                            </div>
+                        </li>
+    
+                        {/* Offices */}
                         <li class="flex items-start group">
                             <svg class="w-6 h-6 text-asp-blue mt-1 mr-4 group-hover:text-asp-green transition-colors" 
                                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2362,31 +2377,55 @@
                                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                             </svg>
                             <div class="group-hover:text-asp-green transition-colors">
+                                <p class="text-gray-800 font-medium mb-1">Bureaux</p>
+                                <p class="text-gray-600 text-lg">Pôle d'activité des Milles</p>
                                 <p class="text-gray-600 text-lg">Aix-en-Provence</p>
                                 <p class="text-gray-600 text-lg">France</p>
                             </div>
                         </li>
-    
-                        <!-- Email -->
-                        <li class="group">
-                            <div class="flex items-start mb-2">
-                                <svg class="w-6 h-6 text-asp-blue mt-1 mr-4 group-hover:text-asp-green transition-colors" 
-                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
-                                <p class="text-gray-600 text-lg">Une demande spécifique?</p>
-                            </div>
-                            <a href="mailto:q.crambes@africansolarpartners.com" 
-                               class="block ml-10 text-asp-blue text-lg font-medium hover:text-asp-green transition-colors">
-                                q.crambes@africansolarpartners.com
-                            </a>
-                        </li>
                     </ul>
+                </div>
+    
+                {/* Column 3: Legal Information and Contact */}
+                <div>
+                    <h3 class="text-xl font-bold text-asp-blue mb-8">Informations Légales</h3>
+                    <div class="space-y-8">
+                        {/* Legal Details */}
+                        <div class="flex items-start group">
+                            <svg class="w-6 h-6 text-asp-blue mt-1 mr-4 group-hover:text-asp-green transition-colors" 
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            <div class="group-hover:text-asp-green transition-colors">
+                                <p class="text-gray-600 text-lg">African Solar Partners - France</p>
+                                <p class="text-gray-600 text-lg">SARL au capital de 10 000€</p>
+                                <p class="text-gray-600 text-lg">R.C.S. Paris, SIRET 95375830700011</p>
+                                <p class="text-gray-600 text-lg">TVA : FR953758307</p>
+                                <p class="text-gray-600 text-lg">EORI : FR95375830700011</p>
+                                <p class="text-gray-600 text-lg">Numéro d'enregistrement REX : FRREX202403AA</p>
+                            </div>
+                        </div>
+    
+                        {/* Email Contact */}
+                        <div class="flex items-start group">
+                            <svg class="w-6 h-6 text-asp-blue mt-1 mr-4 group-hover:text-asp-green transition-colors" 
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <div class="group-hover:text-asp-green transition-colors">
+                                <a href="mailto:contact@africansolarpartners.com" 
+                                   class="text-asp-blue text-lg font-medium hover:text-asp-green transition-colors">
+                                    contact@africansolarpartners.com
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
     
-            <!-- Footer Bottom -->
+            {/* Footer Bottom - Copyright and Links */}
             <div class="pt-6 border-t border-gray-200">
                 <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                     <p class="text-gray-500 text-sm">
