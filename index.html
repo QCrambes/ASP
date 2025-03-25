@@ -114,24 +114,36 @@
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#qui-sommes-nous" class="text-asp-blue hover:text-asp-green transition-colors">
-                        Qui sommes-nous
+                        <span data-lang="fr">Qui sommes-nous</span>
+                        <span data-lang="en" style="display: none;">Who We Are</span>
                     </a>
                     <a href="#expertise" class="text-asp-blue hover:text-asp-green transition-colors">
-                        Expertise
+                        <span data-lang="fr">Expertise</span>
+                        <span data-lang="en" style="display: none;">Expertise</span>
                     </a>
                     <a href="#projets" class="text-asp-blue hover:text-asp-green transition-colors">
-                        Références
+                        <span data-lang="fr">Références</span>
+                        <span data-lang="en" style="display: none;">References</span>
                     </a>
                     <a href="#solutions" class="text-asp-blue hover:text-asp-green transition-colors">
-                        Solutions
+                        <span data-lang="fr">Solutions</span>
+                        <span data-lang="en" style="display: none;">Solutions</span>
                     </a>
                     <a href="#marques" class="text-asp-blue hover:text-asp-green transition-colors">
-                        Marques & Produits
+                        <span data-lang="fr">Marques & Produits</span>
+                        <span data-lang="en" style="display: none;">Brands & Products</span>
                     </a>
                     <a href="#contact" class="bg-asp-blue text-white px-4 py-2 rounded-lg 
-                                          hover:bg-asp-green transition-colors">
-                        Contact
+                                         hover:bg-asp-green transition-colors">
+                        <span data-lang="fr">Contact</span>
+                        <span data-lang="en" style="display: none;">Contact</span>
                     </a>
+                    
+                    <div class="flex items-center space-x-1 ml-4 border-l pl-4 border-gray-200">
+                        <button id="lang-fr" class="text-asp-blue hover:text-asp-green transition-colors px-2 font-bold" onclick="switchLanguage('fr')">FR</button>
+                        <span class="text-gray-400">|</span>
+                        <button id="lang-en" class="text-asp-blue hover:text-asp-green transition-colors px-2" onclick="switchLanguage('en')">EN</button>
+                    </div>                  
                 </div>
                 
                 <!-- Mobile Menu Button -->
@@ -173,43 +185,52 @@
                 </div>
                 
                 <nav class="space-y-6">
-                    <!-- Mobile Navigation Links -->
                     <a href="#qui-sommes-nous" @click="mobileMenuOpen = false" 
                        class="block text-lg text-asp-blue hover:text-asp-green transition-colors">
-                        Qui sommes-nous
+                        <span data-lang="fr">Qui sommes-nous</span>
+                        <span data-lang="en" style="display: none;">Who We Are</span>
                     </a>
                     <a href="#expertise-mobile" @click="mobileMenuOpen = false"
                        class="block text-lg text-asp-blue hover:text-asp-green transition-colors">
-                        Solutions
+                        <span data-lang="fr">Solutions</span>
+                        <span data-lang="en" style="display: none;">Solutions</span>
                     </a>
                     <a href="#projets-mobile" @click="mobileMenuOpen = false"
                        class="block text-lg text-asp-blue hover:text-asp-green transition-colors">
-                        Références
+                        <span data-lang="fr">Références</span>
+                        <span data-lang="en" style="display: none;">References</span>
                     </a>
-
                     <a href="#solutions-mobile" @click="mobileMenuOpen = false"
                        class="block text-lg text-asp-blue hover:text-asp-green transition-colors">
-                        Solutions
+                        <span data-lang="fr">Solutions</span>
+                        <span data-lang="en" style="display: none;">Solutions</span>
                     </a>                    
                     <a href="#marques-mobile" @click="mobileMenuOpen = false"
                        class="block text-lg text-asp-blue hover:text-asp-green transition-colors">
-                        Marques & Produits
+                        <span data-lang="fr">Marques & Produits</span>
+                        <span data-lang="en" style="display: none;">Brands & Products</span>
                     </a>
-
                     <a href="#contact" @click="mobileMenuOpen = false"
                        class="block text-lg bg-asp-blue text-white px-4 py-2 rounded-lg 
                               hover:bg-asp-green transition-colors text-center">
-                        Contact
+                        <span data-lang="fr">Contact</span>
+                        <span data-lang="en" style="display: none;">Contact</span>
                     </a>
+                    
+                    <div class="flex justify-center space-x-4 pt-6 mt-6 border-t border-gray-200">
+                        <button id="lang-fr-mobile" class="text-asp-blue text-lg font-bold" onclick="switchLanguage('fr')">Français</button>
+                        <span class="text-gray-400">|</span>
+                        <button id="lang-en-mobile" class="text-asp-blue text-lg" onclick="switchLanguage('en')">English</button>
+                    </div>
                 </nav>
             </div>
         </div>
     </div>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative min-h-screen"> <!-- Removed pt-20 from here -->
+    <section id="hero" class="relative min-h-screen">
         <!-- Background Image Container -->
-        <div class="absolute top-20 inset-x-0 bottom-0"> <!-- Changed inset-0 to top-20 and kept horizontal/bottom -->
+        <div class="absolute top-20 inset-x-0 bottom-0">
             <img src="images/PV_Naya_front_cover.jpg" alt="Solar Installation" 
                  class="w-full h-full object-cover">
         </div>
@@ -220,11 +241,13 @@
                 <!-- Text Content -->
                 <div class="space-y-8 text-center max-w-4xl">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-                        Experts en systèmes d'énergie hybrides
+                        <span data-lang="fr">Experts en systèmes d'énergie hybrides</span>
+                        <span data-lang="en" style="display: none;">Experts in hybrid energy systems</span>
                     </h1>
                     
                     <p class="text-xl md:text-2xl font-bold text-white">
-                       Solutions clé-en-main, de l'étude à la mise en service
+                        <span data-lang="fr">Solutions clé-en-main, de l'étude à la mise en service</span>
+                        <span data-lang="en" style="display: none;">Turnkey solutions, from study to commissioning</span>
                     </p>
                 </div>
                 
@@ -237,7 +260,8 @@
                         <a href="#contact" 
                            class="inline-block bg-asp-blue text-white px-8 py-4 rounded-lg 
                                   text-lg font-semibold hover:bg-asp-green transition-colors">
-                            Démarrer votre projet
+                            <span data-lang="fr">Démarrer votre projet</span>
+                            <span data-lang="en" style="display: none;">Start your project</span>
                         </a>
                     </div>
                 </div>
@@ -246,123 +270,151 @@
     </section>
 
     <section id="qui-sommes-nous" class="py-20 bg-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
-                    Qui sommes-nous
-                </h2>
-                
-                <div class="grid md:grid-cols-2 gap-12 items-start">
-                    <div data-aos="fade-right">
-                        <h3 class="text-2xl font-bold text-asp-blue mb-6">
-                            Experts en photovoltaïque, stockage et centrales thermiques
-                        </h3>
-                        <p class="text-gray-700 mb-6">
-                            African Solar Partners met son expertise dans les centrales photovoltaïques hybrides au service
-                            des porteurs de projets commerciaux, industriels et communautaires à travers l'Afrique et les
-                            zones isolées du monde entier. Nous vous accompagnons sur tous les aspects techniques de la conception jusqu'à l'opération.
-                        </p>
-                        <p class="text-gray-700 mb-6">
-                            Basé en France à Aix-en-Provence, nos ingénieurs sont mobiles partout dans le monde et interviennent pour des missions de suivi de chantier, de formation et de mise en service.
-                        </p>
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
+                <span data-lang="fr">Qui sommes-nous</span>
+                <span data-lang="en" style="display: none;">Who we are</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-bold text-asp-blue mb-6">
+                        <span data-lang="fr">Experts en photovoltaïque, stockage et centrales thermiques</span>
+                        <span data-lang="en" style="display: none;">Experts in photovoltaics, storage and thermal power plants</span>
+                    </h3>
+                    <p class="text-gray-700 mb-6">
+                        <span data-lang="fr">African Solar Partners met son expertise dans les centrales photovoltaïques hybrides au service
+                        des porteurs de projets commerciaux, industriels et communautaires à travers l'Afrique et les
+                        zones isolées du monde entier. Nous vous accompagnons sur tous les aspects techniques de la conception jusqu'à l'opération.</span>
+                        <span data-lang="en" style="display: none;">African Solar Partners puts its expertise in hybrid photovoltaic power plants at the service
+                        of commercial, industrial and community project owners across Africa and
+                        isolated areas worldwide. We support you on all technical aspects from design to operation.</span>
+                    </p>
+                    <p class="text-gray-700 mb-6">
+                        <span data-lang="fr">Basé en France à Aix-en-Provence, nos ingénieurs sont mobiles partout dans le monde et interviennent pour des missions de suivi de chantier, de formation et de mise en service.</span>
+                        <span data-lang="en" style="display: none;">Based in France in Aix-en-Provence, our engineers are mobile worldwide and provide services for site monitoring, training and commissioning.</span>
+                    </p>
     
-                        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8" data-aos="fade-up" data-aos-delay="100">
-                            <!-- Service cards remain unchanged -->
-                            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-asp-blue">
-                                <div class="text-asp-blue mb-4">
-                                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
-                                    </svg>
-                                </div>
-                                <p class="text-sm text-gray-700 break-words">Réalisation d'études de faisabilité et de prédimensionnements</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8" data-aos="fade-up" data-aos-delay="100">
+                        <!-- Service cards remain unchanged -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-asp-blue">
+                            <div class="text-asp-blue mb-4">
+                                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                                </svg>
                             </div>
+                            <p class="text-sm text-gray-700 break-words">
+                                <span data-lang="fr">Réalisation d'études de faisabilité et de prédimensionnements</span>
+                                <span data-lang="en" style="display: none;">Conducting feasibility studies and preliminary sizing</span>
+                            </p>
+                        </div>
     
-                            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-asp-blue">
-                                <div class="text-asp-blue mb-4">
-                                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-                                    </svg>
-                                </div>
-                                <p class="text-sm text-gray-700">Réalisation d'avant-projets sommaires et détaillées</p>
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-asp-blue">
+                            <div class="text-asp-blue mb-4">
+                                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                </svg>
                             </div>
+                            <p class="text-sm text-gray-700">
+                                <span data-lang="fr">Réalisation d'avant-projets sommaires et détaillées</span>
+                                <span data-lang="en" style="display: none;">Creation of preliminary and detailed design studies</span>
+                            </p>
+                        </div>
     
-                            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-asp-blue">
-                                <div class="text-asp-blue mb-4">
-                                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                                    </svg>
-                                </div>
-                                <p class="text-sm text-gray-700">Rédaction de dossiers d'exécution et dossiers des ouvrages exécutés</p>
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-asp-blue">
+                            <div class="text-asp-blue mb-4">
+                                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
                             </div>
+                            <p class="text-sm text-gray-700">
+                                <span data-lang="fr">Rédaction de dossiers d'exécution et dossiers des ouvrages exécutés</span>
+                                <span data-lang="en" style="display: none;">Preparation of execution documents and as-built documentation</span>
+                            </p>
+                        </div>
     
-                            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-asp-blue">
-                                <div class="text-asp-blue mb-4">
-                                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                              d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-                                    </svg>
-                                </div>
-                                <p class="text-sm text-gray-700">Fourniture dans le monde entier de l'ensemble du matériel requis pour vos installations</p>
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-asp-blue">
+                            <div class="text-asp-blue mb-4">
+                                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                                </svg>
                             </div>
+                            <p class="text-sm text-gray-700">
+                                <span data-lang="fr">Fourniture dans le monde entier de l'ensemble du matériel requis pour vos installations</span>
+                                <span data-lang="en" style="display: none;">Worldwide supply of all equipment required for your installations</span>
+                            </p>
                         </div>
                     </div>
+                </div>
     
-                    <div class="space-y-8" data-aos="fade-left">
-                        <div class="relative">
-                            <img src="images/PV_Naya2.jpg" alt="Installation Solaire" 
-                                 class="rounded-lg shadow-xl object-cover w-full h-96">
-                            <div class="absolute -bottom-6 -right-6 bg-asp-green-light text-white p-4 rounded-lg shadow-lg">
-                                <p class="font-bold text-2xl">12 ans+</p>
-                                <p class="text-sm">Experience terrain</p>
-                            </div>
+                <div class="space-y-8" data-aos="fade-left">
+                    <div class="relative">
+                        <img src="images/PV_Naya2.jpg" alt="Installation Solaire" 
+                             class="rounded-lg shadow-xl object-cover w-full h-96">
+                        <div class="absolute -bottom-6 -right-6 bg-asp-green-light text-white p-4 rounded-lg shadow-lg">
+                            <p class="font-bold text-2xl">
+                                <span data-lang="fr">12 ans+</span>
+                                <span data-lang="en" style="display: none;">12+ years</span>
+                            </p>
+                            <p class="text-sm">
+                                <span data-lang="fr">Experience terrain</span>
+                                <span data-lang="en" style="display: none;">Field experience</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4 mt-12">
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-asp-green mt-1 flex-shrink-0" fill="none" 
+                                 stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="ml-3 text-gray-700">
+                                <span data-lang="fr">12+ ans d'expérience en solutions hybrides complexes</span>
+                                <span data-lang="en" style="display: none;">12+ years of experience in complex hybrid solutions</span>
+                            </span>
                         </div>
                         
-                        <div class="space-y-4 mt-12">
-                            <div class="flex items-start">
-                                <svg class="w-6 h-6 text-asp-green mt-1 flex-shrink-0" fill="none" 
-                                     stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                          d="M5 13l4 4L19 7"/>
-                                </svg>
-                                <span class="ml-3 text-gray-700">
-                                    12+ ans d'expérience en solutions hybrides complexes
-                                </span>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <svg class="w-6 h-6 text-asp-green mt-1 flex-shrink-0" fill="none" 
-                                     stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                          d="M5 13l4 4L19 7"/>
-                                </svg>
-                                <span class="ml-3 text-gray-700">
-                                    Partenariats avec les leaders du marché
-                                </span>
-                            </div>
-                            <div class="flex items-start">
-                                <svg class="w-6 h-6 text-asp-green mt-1 flex-shrink-0" fill="none" 
-                                     stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                          d="M5 13l4 4L19 7"/>
-                                </svg>
-                                <span class="ml-3 text-gray-700">
-                                    Réseau d'installateurs locaux qualifiés à travers le monde
-                                </span>
-                            </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-asp-green mt-1 flex-shrink-0" fill="none" 
+                                 stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="ml-3 text-gray-700">
+                                <span data-lang="fr">Partenariats avec les leaders du marché</span>
+                                <span data-lang="en" style="display: none;">Partnerships with market leaders</span>
+                            </span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-asp-green mt-1 flex-shrink-0" fill="none" 
+                                 stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="ml-3 text-gray-700">
+                                <span data-lang="fr">Réseau d'installateurs locaux qualifiés à travers le monde</span>
+                                <span data-lang="en" style="display: none;">Network of qualified local installers worldwide</span>
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
     <section id="expertise" class="py-20 bg-gray-50 hidden md:block">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
-                Notre expertise
+                <span data-lang="fr">Notre expertise</span>
+                <span data-lang="en" style="display: none;">Our Expertise</span>
             </h2>
-            
+    
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                 <div class="bg-white rounded-lg shadow-lg p-5 hover:shadow-xl transition-shadow duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="100">
                     <div class="h-12 w-12 bg-asp-green-light rounded-lg flex items-center justify-center mb-4">
@@ -371,23 +423,38 @@
                         </svg>
                     </div>
                     <div class="h-14 mb-2">
-                        <h3 class="text-lg font-bold text-asp-blue">Synchronisation de centrales multi-sources</h3>
+                        <h3 class="text-lg font-bold text-asp-blue">
+                            <span data-lang="fr">Synchronisation de centrales multi-sources</span>
+                            <span data-lang="en" style="display: none;">Multi-source Power Plant Synchronization</span>
+                        </h3>
                     </div>
                     <div class="h-16 mb-2">
-                        <p class="text-gray-700 text-sm">Solutions complètes d'hybridation et contrôle intelligent des systèmes énergétiques.</p>
+                        <p class="text-gray-700 text-sm">
+                            <span data-lang="fr">Solutions complètes d'hybridation et contrôle intelligent des systèmes énergétiques.</span>
+                            <span data-lang="en" style="display: none;">Complete hybrid solutions and intelligent control of energy systems.</span>
+                        </p>
                     </div>
                     <ul class="space-y-2 text-gray-600 text-sm">
                         <li class="flex items-start">
                             <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                            <span>Optimisation de la pénétration solaire PV en tout temps</span>
+                            <span>
+                                <span data-lang="fr">Optimisation de la pénétration solaire PV en tout temps</span>
+                                <span data-lang="en" style="display: none;">Optimization of solar PV penetration at all times</span>
+                            </span>
                         </li>
                         <li class="flex items-start">
                             <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                            <span>Gestion intelligente du stockage pour optimiser la consommation de carburant fossile</span>
+                            <span>
+                                <span data-lang="fr">Gestion intelligente du stockage pour optimiser la consommation de carburant fossile</span>
+                                <span data-lang="en" style="display: none;">Intelligent storage management to optimize fossil fuel consumption</span>
+                            </span>
                         </li>
                         <li class="flex items-start">
                             <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                            <span>Surveillance avancée en temps réel des systèmes</span>
+                            <span>
+                                <span data-lang="fr">Surveillance avancée en temps réel des systèmes</span>
+                                <span data-lang="en" style="display: none;">Advanced real-time monitoring of systems</span>
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -399,23 +466,38 @@
                         </svg>
                     </div>
                     <div class="h-14 mb-2">
-                        <h3 class="text-lg font-bold text-asp-blue">Expertise en génération et distribution HTA jusqu'à 30kV</h3>
+                        <h3 class="text-lg font-bold text-asp-blue">
+                            <span data-lang="fr">Expertise en génération et distribution HTA jusqu'à 30kV</span>
+                            <span data-lang="en" style="display: none;">Expertise in Generation and Distribution up to 30kV HTA</span>
+                        </h3>
                     </div>
                     <div class="h-16 mb-2">
-                        <p class="text-gray-700 text-sm">Expertise en génération et distribution haute tension</p>
+                        <p class="text-gray-700 text-sm">
+                            <span data-lang="fr">Expertise en génération et distribution haute tension</span>
+                            <span data-lang="en" style="display: none;">Expertise in high-voltage generation and distribution</span>
+                        </p>
                     </div>
                     <ul class="space-y-2 text-gray-600 text-sm">
                         <li class="flex items-start">
                             <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                            <span>Conception et notes de calculs</span>
+                            <span>
+                                <span data-lang="fr">Conception et notes de calculs</span>
+                                <span data-lang="en" style="display: none;">Design and calculation notes</span>
+                            </span>
                         </li>
                         <li class="flex items-start">
                             <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                            <span>Fourniture du matériel et des accessoires</span>
+                            <span>
+                                <span data-lang="fr">Fourniture du matériel et des accessoires</span>
+                                <span data-lang="en" style="display: none;">Supply of equipment and accessories</span>
+                            </span>
                         </li>
                         <li class="flex items-start">
                             <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                            <span>Tests et mise en service</span>
+                            <span>
+                                <span data-lang="fr">Tests et mise en service</span>
+                                <span data-lang="en" style="display: none;">Testing and commissioning</span>
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -427,23 +509,38 @@
                         </svg>
                     </div>
                     <div class="h-14 mb-2">
-                        <h3 class="text-lg font-bold text-asp-blue">Technologies émergentes</h3>
+                        <h3 class="text-lg font-bold text-asp-blue">
+                            <span data-lang="fr">Technologies émergentes</span>
+                            <span data-lang="en" style="display: none;">Emerging Technologies</span>
+                        </h3>
                     </div>
                     <div class="h-16 mb-2">
-                        <p class="text-gray-700 text-sm">Integration des dernières innovations, notamment de solutions de stockage avancées.</p>
+                        <p class="text-gray-700 text-sm">
+                            <span data-lang="fr">Integration des dernières innovations, notamment de solutions de stockage avancées.</span>
+                            <span data-lang="en" style="display: none;">Integration of the latest innovations, including advanced storage solutions.</span>
+                        </p>
                     </div>
                     <ul class="space-y-2 text-gray-600 text-sm">
                         <li class="flex items-start">
                             <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                            <span>Batteries à flux redox</span>
+                            <span>
+                                <span data-lang="fr">Batteries à flux redox</span>
+                                <span data-lang="en" style="display: none;">Redox flow batteries</span>
+                            </span>
                         </li>
                         <li class="flex items-start">
                             <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                            <span>Systèmes photovoltaïques à la pointe de la technologie</span>
+                            <span>
+                                <span data-lang="fr">Systèmes photovoltaïques à la pointe de la technologie</span>
+                                <span data-lang="en" style="display: none;">State-of-the-art photovoltaic systems</span>
+                            </span>
                         </li>
                         <li class="flex items-start">
                             <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                            <span>Stockage H2</span>
+                            <span>
+                                <span data-lang="fr">Stockage H2</span>
+                                <span data-lang="en" style="display: none;">H2 storage</span>
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -455,23 +552,38 @@
                         </svg>
                     </div>
                     <div class="h-14 mb-2">
-                        <h3 class="text-lg font-bold text-asp-blue">Conception et installation clé en main</h3>
+                        <h3 class="text-lg font-bold text-asp-blue">
+                            <span data-lang="fr">Conception et installation clé en main</span>
+                            <span data-lang="en" style="display: none;">Turnkey Design and Installation</span>
+                        </h3>
                     </div>
                     <div class="h-16 mb-2">
-                        <p class="text-gray-700 text-sm">Projets photovoltaïques hybrides > 300kW, du prédimensionnement à la mise en service.</p>
+                        <p class="text-gray-700 text-sm">
+                            <span data-lang="fr">Projets photovoltaïques hybrides > 300kW, du prédimensionnement à la mise en service.</span>
+                            <span data-lang="en" style="display: none;">Hybrid photovoltaic projects > 300kW, from pre-sizing to commissioning.</span>
+                        </p>
                     </div>
                     <ul class="space-y-2 text-gray-600 text-sm">
                         <li class="flex items-start">
                             <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                            <span>Avant-projets somaires</span>
+                            <span>
+                                <span data-lang="fr">Avant-projets sommaires</span>
+                                <span data-lang="en" style="display: none;">Preliminary drafts</span>
+                            </span>
                         </li>
                         <li class="flex items-start">
                             <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                            <span>Avant-projets détaillés</span>
+                            <span>
+                                <span data-lang="fr">Avant-projets détaillés</span>
+                                <span data-lang="en" style="display: none;">Detailed drafts</span>
+                            </span>
                         </li>
                         <li class="flex items-start">
                             <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                            <span>Assistance à la maîtrise d'ouvrage</span>
+                            <span>
+                                <span data-lang="fr">Assistance à la maîtrise d'ouvrage</span>
+                                <span data-lang="en" style="display: none;">Project management assistance</span>
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -482,14 +594,15 @@
     <section id="expertise-mobile" class="py-20 bg-gray-50 md:hidden" x-data="{ activeSlide: 0 }">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
-                Notre expertise
+                <span data-lang="fr">Notre expertise</span>
+                <span data-lang="en" style="display: none;">Our Expertise</span>
             </h2>
     
             <div class="relative" x-data="{ scrollPosition: 0 }">
-                <div class="flex overflow-x-auto hide-scrollbar gap-8 px-4 py-2" 
+                <div class="flex overflow-x-auto hide-scrollbar gap-8 px-4 py-2"
                      x-ref="solutionsGallery"
                      style="scroll-snap-type: x mandatory;">
-                    
+    
                     <div class="flex-none w-80" style="scroll-snap-align: start;">
                         <div class="bg-white rounded-lg shadow-lg p-5 hover:shadow-xl transition-shadow duration-300 flex flex-col">
                             <div class="h-12 w-12 bg-asp-green-light rounded-lg flex items-center justify-center mb-4">
@@ -498,19 +611,31 @@
                                 </svg>
                             </div>
                             <div class="h-14 mb-2">
-                                <h3 class="text-lg font-bold text-asp-blue">Synchronisation de centrales multi-sources</h3>
+                                <h3 class="text-lg font-bold text-asp-blue">
+                                    <span data-lang="fr">Synchronisation de centrales multi-sources</span>
+                                    <span data-lang="en" style="display: none;">Multi-source Power Plant Synchronization</span>
+                                </h3>
                             </div>
                             <div class="h-16 mb-2">
-                                <p class="text-gray-700 text-sm">Solutions complètes d'hybridation et contrôle intelligent des systèmes énergétiques.</p>
+                                <p class="text-gray-700 text-sm">
+                                    <span data-lang="fr">Solutions complètes d'hybridation et contrôle intelligent des systèmes énergétiques.</span>
+                                    <span data-lang="en" style="display: none;">Complete hybrid solutions and intelligent control of energy systems.</span>
+                                </p>
                             </div>
                             <ul class="space-y-2 text-gray-600 text-sm">
                                 <li class="flex items-start">
                                     <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                                    <span>Optimisation de la production</span>
+                                    <span>
+                                        <span data-lang="fr">Optimisation de la production</span>
+                                        <span data-lang="en" style="display: none;">Production optimization</span>
+                                    </span>
                                 </li>
                                 <li class="flex items-start">
                                     <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                                    <span>Contrôle avancé des systèmes</span>
+                                    <span>
+                                        <span data-lang="fr">Contrôle avancé des systèmes</span>
+                                        <span data-lang="en" style="display: none;">Advanced system control</span>
+                                    </span>
                                 </li>
                             </ul>
                             <div class="text-gray-700 text-sm text-right mt-4">1/4</div>
@@ -525,19 +650,31 @@
                                 </svg>
                             </div>
                             <div class="h-14 mb-2">
-                                <h3 class="text-lg font-bold text-asp-blue">Installations HTA</h3>
+                                <h3 class="text-lg font-bold text-asp-blue">
+                                    <span data-lang="fr">Installations HTA</span>
+                                    <span data-lang="en" style="display: none;">HTA Installations</span>
+                                </h3>
                             </div>
                             <div class="h-16 mb-2">
-                                <p class="text-gray-700 text-sm">Expertise en génération et distribution haute tension</p>
+                                <p class="text-gray-700 text-sm">
+                                    <span data-lang="fr">Expertise en génération et distribution haute tension</span>
+                                    <span data-lang="en" style="display: none;">Expertise in high-voltage generation and distribution</span>
+                                </p>
                             </div>
                             <ul class="space-y-2 text-gray-600 text-sm">
                                 <li class="flex items-start">
                                     <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                                    <span>Conception et mise en œuvre</span>
+                                    <span>
+                                        <span data-lang="fr">Conception et mise en œuvre</span>
+                                        <span data-lang="en" style="display: none;">Design and implementation</span>
+                                    </span>
                                 </li>
                                 <li class="flex items-start">
                                     <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                                    <span>Maintenance préventive</span>
+                                    <span>
+                                        <span data-lang="fr">Maintenance préventive</span>
+                                        <span data-lang="en" style="display: none;">Preventive maintenance</span>
+                                    </span>
                                 </li>
                             </ul>
                             <div class="text-gray-700 text-sm text-right mt-4">2/4</div>
@@ -552,19 +689,31 @@
                                 </svg>
                             </div>
                             <div class="h-14 mb-2">
-                                <h3 class="text-lg font-bold text-asp-blue">Technologies émergentes</h3>
+                                <h3 class="text-lg font-bold text-asp-blue">
+                                    <span data-lang="fr">Technologies émergentes</span>
+                                    <span data-lang="en" style="display: none;">Emerging Technologies</span>
+                                </h3>
                             </div>
                             <div class="h-16 mb-2">
-                                <p class="text-gray-700 text-sm">Integration des dernières innovations: batteries redox/flow, H2, et solutions de stockage avancées.</p>
+                                <p class="text-gray-700 text-sm">
+                                    <span data-lang="fr">Integration des dernières innovations: batteries redox/flow, H2, et solutions de stockage avancées.</span>
+                                    <span data-lang="en" style="display: none;">Integration of the latest innovations: redox/flow batteries, H2, and advanced storage solutions.</span>
+                                </p>
                             </div>
                             <ul class="space-y-2 text-gray-600 text-sm">
                                 <li class="flex items-start">
                                     <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                                    <span>Batteries à flux redox</span>
+                                    <span>
+                                        <span data-lang="fr">Batteries à flux redox</span>
+                                        <span data-lang="en" style="display: none;">Redox flow batteries</span>
+                                    </span>
                                 </li>
                                 <li class="flex items-start">
                                     <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                                    <span>Stockage H2</span>
+                                    <span>
+                                        <span data-lang="fr">Stockage H2</span>
+                                        <span data-lang="en" style="display: none;">H2 storage</span>
+                                    </span>
                                 </li>
                             </ul>
                             <div class="text-gray-700 text-sm text-right mt-4">3/4</div>
@@ -579,19 +728,31 @@
                                 </svg>
                             </div>
                             <div class="h-14 mb-2">
-                                <h3 class="text-lg font-bold text-asp-blue">Conception et installation clé en main</h3>
+                                <h3 class="text-lg font-bold text-asp-blue">
+                                    <span data-lang="fr">Conception et installation clé en main</span>
+                                    <span data-lang="en" style="display: none;">Turnkey Design and Installation</span>
+                                </h3>
                             </div>
                             <div class="h-16 mb-2">
-                                <p class="text-gray-700 text-sm">Projets photovoltaïques hybrides > 300kW, du prédimensionnement à la mise en service.</p>
+                                <p class="text-gray-700 text-sm">
+                                    <span data-lang="fr">Projets photovoltaïques hybrides > 300kW, du prédimensionnement à la mise en service.</span>
+                                    <span data-lang="en" style="display: none;">Hybrid photovoltaic projects > 300kW, from pre-sizing to commissioning.</span>
+                                </p>
                             </div>
                             <ul class="space-y-2 text-gray-600 text-sm">
                                 <li class="flex items-start">
                                     <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                                    <span>Études APS et APD</span>
+                                    <span>
+                                        <span data-lang="fr">Études APS et APD</span>
+                                        <span data-lang="en" style="display: none;">APS and APD studies</span>
+                                    </span>
                                 </li>
                                 <li class="flex items-start">
                                     <div class="w-2 h-2 bg-asp-green rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
-                                    <span>Assistance à la maîtrise d'ouvrage</span>
+                                    <span>
+                                        <span data-lang="fr">Assistance à la maîtrise d'ouvrage</span>
+                                        <span data-lang="en" style="display: none;">Project management assistance</span>
+                                    </span>
                                 </li>
                             </ul>
                             <div class="text-gray-700 text-sm text-right mt-4">4/4</div>
@@ -602,19 +763,21 @@
     
             <div class="flex justify-center mt-6">
                 <p class="text-sm text-gray-500">
-                    Faites défiler horizontalement pour découvrir toutes nos solutions
+                    <span data-lang="fr">Faites défiler horizontalement pour découvrir toutes nos solutions</span>
+                    <span data-lang="en" style="display: none;">Scroll horizontally to discover all our solutions</span>
                 </p>
             </div>
         </div>
     </section>
+
     
     <!-- Projets de référence  DESKTOP -->
     <section id="projets" class="py-20 bg-gradient-to-b from-white to-gray-50 hidden md:block">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
-                Références
+                <span data-lang="fr">Références</span>
+                <span data-lang="en" style="display: none;">References</span>
             </h2>
-    
             <div class="relative" x-data="{ 
                 currentSlide: 0,
                 isTransitioning: false,
@@ -724,7 +887,8 @@
                                                     </svg>
                                                 </div>
                                                 <span class="text-white text-lg font-semibold">
-                                                    Consulter le Projet
+                                                    <span data-lang="fr">Consulter le Projet</span>
+                                                    <span data-lang="en" style="display: none;">View the Project</span>                                                    
                                                 </span>
                                             </div>
                                         </div>
@@ -732,28 +896,31 @@
                                     <!-- Content section -->
                                     <div class="p-6">
                                         <h3 class="text-xl font-bold text-asp-blue mb-3">
-                                            Contrôle PV Thermique
+                                            <span data-lang="fr">Contrôle PV Thermique</span>
+                                            <span data-lang="en" style="display: none;">PV Thermal Control</span>
                                         </h3>
                                         <p class="text-gray-600 mb-4">
-                                            Optimisation et contrôle d'une centrale hybride PV-Thermique, 
-                                            maximisant l'efficacité énergétique.
+                                            <span data-lang="fr">Optimisation et contrôle d'une centrale hybride PV-Thermique, maximisant l'efficacité énergétique.</span>
+                                            <span data-lang="en" style="display: none;">Optimization and control of a hybrid PV-Thermal power plant, maximizing energy efficiency.</span>
                                         </p>
                                         <div class="space-y-2">
                                             <div class="flex items-center">
-                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
-                                                     stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" 
-                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                                 </svg>
-                                                <span class="text-gray-700">Déplacement de charge et écrêtement des pics</span>
+                                                <span class="text-gray-700">
+                                                    <span data-lang="fr">Déplacement de charge et écrêtement des pics</span>
+                                                    <span data-lang="en" style="display: none;">Load shifting and peak shaving</span>
+                                                </span>
                                             </div>
                                             <div class="flex items-center">
-                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
-                                                     stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" 
-                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                                 </svg>
-                                                <span class="text-gray-700">17 contrôleurs installés</span>
+                                                <span class="text-gray-700">
+                                                    <span data-lang="fr">17 contrôleurs installés</span>
+                                                    <span data-lang="en" style="display: none;">17 controllers installed</span>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="absolute bottom-4 right-4 text-gray-700 text-sm">
@@ -786,7 +953,8 @@
                                                     </svg>
                                                 </div>
                                                 <span class="text-white text-lg font-semibold">
-                                                    Consulter le Projet
+                                                    <span data-lang="fr">Consulter le Projet</span>
+                                                    <span data-lang="en" style="display: none;">View the Project</span>   
                                                 </span>
                                             </div>
                                         </div>
@@ -794,30 +962,34 @@
                                     <!-- Content section -->
                                     <div class="p-6">
                                         <h3 class="text-xl font-bold text-asp-blue mb-3">
-                                            Installation PV Togo
+                                            <span data-lang="fr">Installation PV Togo</span>
+                                            <span data-lang="en" style="display: none;">PV Installation in Togo</span>
                                         </h3>
                                         <p class="text-gray-600 mb-4">
-                                            Centrale solaire au Togo pour une usine de produits surgelés, combinant production 
-                                            solaire et stockage énergétique.
+                                            <span data-lang="fr">Centrale solaire au Togo pour une usine de produits surgelés, combinant production solaire et stockage énergétique.</span>
+                                            <span data-lang="en" style="display: none;">Solar power plant in Togo for a frozen products factory, combining solar production and energy storage.</span>
                                         </p>
                                         <div class="space-y-2">
                                             <div class="flex items-center">
-                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
-                                                     stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" 
-                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                                 </svg>
-                                                <span class="text-gray-700">20.000€/an d'économies</span>
+                                                <span class="text-gray-700">
+                                                    <span data-lang="fr">20.000€/an d'économies</span>
+                                                    <span data-lang="en" style="display: none;">€20,000 annual savings</span>
+                                                </span>
                                             </div>
                                             <div class="flex items-center">
-                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
-                                                     stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" 
-                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                                 </svg>
-                                                <span class="text-gray-700">3.7 ans - temps d'amortissement</span>
+                                                <span class="text-gray-700">
+                                                    <span data-lang="fr">3.7 ans - temps d'amortissement</span>
+                                                    <span data-lang="en" style="display: none;">3.7 years - payback period</span>
+                                                </span>
                                             </div>
                                         </div>
+
                                         <div class="absolute bottom-4 right-4 text-gray-700 text-sm">
                                             2/4
                                         </div>
@@ -851,39 +1023,43 @@
                                                     </svg>
                                                 </div>
                                                 <span class="text-white text-lg font-semibold">
-                                                    Consulter le Projet
+                                                    <span data-lang="fr">Consulter le Projet</span>
+                                                    <span data-lang="en" style="display: none;">View the Project</span>   
                                                 </span>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- Content section -->
                                     <div class="p-6">
-                                        <h3 class="text-xl font-bold text-asp-blue mb-3">
-                                            Rétrofit groupes électrogènes à Madagascar
+                                         <h3 class="text-xl font-bold text-asp-blue mb-3">
+                                            <span data-lang="fr">Rétrofit groupes électrogènes à Madagascar</span>
+                                            <span data-lang="en" style="display: none;">Retrofit of Generator Sets in Madagascar</span>
                                         </h3>
                                         <p class="text-gray-600 mb-4">
-                                            Installation de contrôleurs de groupes et de nouveaux AVR et paramétrage
-                                            de groupes electrogènes pour fonctionner avec une consigne spécifique
+                                            <span data-lang="fr">Installation de contrôleurs de groupes et de nouveaux AVR et paramétrage de groupes électrogènes pour fonctionner avec une consigne spécifique.</span>
+                                            <span data-lang="en" style="display: none;">Installation of group controllers and new AVRs, and configuration of generator sets to operate with a specific setpoint.</span>
                                         </p>
                                         <div class="space-y-2">
                                             <div class="flex items-center">
-                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
-                                                     stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" 
-                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                                 </svg>
-                                                <span class="text-gray-700">330kVA de GE</span>
+                                                <span class="text-gray-700">
+                                                    <span data-lang="fr">330kVA de GE</span>
+                                                    <span data-lang="en" style="display: none;">330kVA of GE</span>
+                                                </span>
                                             </div>
                                             <div class="flex items-center">
-                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
-                                                     stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" 
-                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                                 </svg>
-    
-                                                <span class="text-gray-700">Synchronisation du GE sur le BESS</span>
+                                                <span class="text-gray-700">
+                                                    <span data-lang="fr">Synchronisation du GE sur le BESS</span>
+                                                    <span data-lang="en" style="display: none;">Synchronization of GE with BESS</span>
+                                                </span>
                                             </div>
                                         </div>
+
                                         <div class="absolute bottom-4 right-4 text-gray-700 text-sm">
                                             3/4
                                         </div>
@@ -914,7 +1090,8 @@
                                                     </svg>
                                                 </div>
                                                 <span class="text-white text-lg font-semibold">
-                                                    Consulter le Projet
+                                                    <span data-lang="fr">Consulter le Projet</span>
+                                                    <span data-lang="en" style="display: none;">View the Project</span>   
                                                 </span>
                                             </div>
                                         </div>
@@ -922,29 +1099,34 @@
                                     <!-- Content section -->
                                     <div class="p-6">
                                         <h3 class="text-xl font-bold text-asp-blue mb-3">
-                                            Installation PV avec 300kWh de stockage lithium
+                                            <span data-lang="fr">Installation PV avec 300kWh de stockage lithium</span>
+                                            <span data-lang="en" style="display: none;">PV Installation with 300kWh Lithium Storage</span>
                                         </h3>
                                         <p class="text-gray-600 mb-4">
-                                            Centrale solaire avec stockage et raccordement réseau pour pour un hôtel 5 étoiles aux Comores
+                                            <span data-lang="fr">Centrale solaire avec stockage et raccordement réseau pour un hôtel 5 étoiles aux Comores.</span>
+                                            <span data-lang="en" style="display: none;">Solar power plant with storage and grid connection for a 5-star hotel in the Comoros.</span>
                                         </p>
                                         <div class="space-y-2">
                                             <div class="flex items-center">
-                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
-                                                     stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" 
-                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                                 </svg>
-                                                <span class="text-gray-700">Solution clé en main</span>
+                                                <span class="text-gray-700">
+                                                    <span data-lang="fr">Solution clé en main</span>
+                                                    <span data-lang="en" style="display: none;">Turnkey solution</span>
+                                                </span>
                                             </div>
                                             <div class="flex items-center">
-                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
-                                                     stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" 
-                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                                 </svg>
-                                                <span class="text-gray-700">174 panneaux solaires</span>
+                                                <span class="text-gray-700">
+                                                    <span data-lang="fr">174 panneaux solaires</span>
+                                                    <span data-lang="en" style="display: none;">174 solar panels</span>
+                                                </span>
                                             </div>
                                         </div>
+
                                         <div class="absolute bottom-4 right-4 text-gray-700 text-sm">
                                             4/4
                                         </div>
@@ -977,7 +1159,8 @@
                                                     </svg>
                                                 </div>
                                                 <span class="text-white text-lg font-semibold">
-                                                    Consulter le Projet
+                                                    <span data-lang="fr">Consulter le Projet</span>
+                                                    <span data-lang="en" style="display: none;">View the Project</span>                                                    
                                                 </span>
                                             </div>
                                         </div>
@@ -985,28 +1168,31 @@
                                     <!-- Content section -->
                                     <div class="p-6">
                                         <h3 class="text-xl font-bold text-asp-blue mb-3">
-                                            Contrôle PV Thermique
+                                            <span data-lang="fr">Contrôle PV Thermique</span>
+                                            <span data-lang="en" style="display: none;">PV Thermal Control</span>
                                         </h3>
                                         <p class="text-gray-600 mb-4">
-                                            Optimisation et contrôle d'une centrale hybride PV-Thermique, 
-                                            maximisant l'efficacité énergétique.
+                                            <span data-lang="fr">Optimisation et contrôle d'une centrale hybride PV-Thermique, maximisant l'efficacité énergétique.</span>
+                                            <span data-lang="en" style="display: none;">Optimization and control of a hybrid PV-Thermal power plant, maximizing energy efficiency.</span>
                                         </p>
                                         <div class="space-y-2">
                                             <div class="flex items-center">
-                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
-                                                     stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" 
-                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                                 </svg>
-                                                <span class="text-gray-700">Déplacement de charge et écrêtement des pics</span>
+                                                <span class="text-gray-700">
+                                                    <span data-lang="fr">Déplacement de charge et écrêtement des pics</span>
+                                                    <span data-lang="en" style="display: none;">Load shifting and peak shaving</span>
+                                                </span>
                                             </div>
                                             <div class="flex items-center">
-                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
-                                                     stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" 
-                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                                 </svg>
-                                                <span class="text-gray-700">17 contrôleurs installés</span>
+                                                <span class="text-gray-700">
+                                                    <span data-lang="fr">17 contrôleurs installés</span>
+                                                    <span data-lang="en" style="display: none;">17 controllers installed</span>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="absolute bottom-4 right-4 text-gray-700 text-sm">
@@ -1019,7 +1205,7 @@
                             <!-- Card 2: Installation PV Togo -->
                             <div class="w-1/2" data-aos="fade-up">
                                 <div class="bg-white rounded-xl shadow-lg overflow-hidden 
-                                          transform transition-all duration-300 hover:shadow-xl h-full">
+                                          transform transition-all duration-300 hover:shadow-xl h-full relative">
                                     <!-- Image section -->
                                     <div class="relative h-64 overflow-hidden group cursor-pointer"
                                          @click="window.open('images/Heistal_Togo.pdf', '_blank')">
@@ -1039,7 +1225,8 @@
                                                     </svg>
                                                 </div>
                                                 <span class="text-white text-lg font-semibold">
-                                                    Consulter le Projet
+                                                    <span data-lang="fr">Consulter le Projet</span>
+                                                    <span data-lang="en" style="display: none;">View the Project</span>   
                                                 </span>
                                             </div>
                                         </div>
@@ -1047,30 +1234,34 @@
                                     <!-- Content section -->
                                     <div class="p-6">
                                         <h3 class="text-xl font-bold text-asp-blue mb-3">
-                                            Installation PV Togo
+                                            <span data-lang="fr">Installation PV Togo</span>
+                                            <span data-lang="en" style="display: none;">PV Installation in Togo</span>
                                         </h3>
                                         <p class="text-gray-600 mb-4">
-                                            Centrale solaire au Togo pour une usine de produits surgelés, combinant production 
-                                            solaire et stockage énergétique.
+                                            <span data-lang="fr">Centrale solaire au Togo pour une usine de produits surgelés, combinant production solaire et stockage énergétique.</span>
+                                            <span data-lang="en" style="display: none;">Solar power plant in Togo for a frozen products factory, combining solar production and energy storage.</span>
                                         </p>
                                         <div class="space-y-2">
                                             <div class="flex items-center">
-                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
-                                                     stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" 
-                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                                 </svg>
-                                                <span class="text-gray-700">20.000€/an d'économies</span>
+                                                <span class="text-gray-700">
+                                                    <span data-lang="fr">20.000€/an d'économies</span>
+                                                    <span data-lang="en" style="display: none;">€20,000 annual savings</span>
+                                                </span>
                                             </div>
                                             <div class="flex items-center">
-                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" 
-                                                     stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" 
-                                                          stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                <svg class="w-5 h-5 text-asp-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                                 </svg>
-                                                <span class="text-gray-700">3.7 ans - temps d'amortissement</span>
+                                                <span class="text-gray-700">
+                                                    <span data-lang="fr">3.7 ans - temps d'amortissement</span>
+                                                    <span data-lang="en" style="display: none;">3.7 years - payback period</span>
+                                                </span>
                                             </div>
                                         </div>
+
                                         <div class="absolute bottom-4 right-4 text-gray-700 text-sm">
                                             2/4
                                         </div>
@@ -1084,7 +1275,8 @@
                 <!-- Mobile Scroll Indicator -->
                 <div class="flex justify-center mt-6 md:hidden">
                     <p class="text-sm text-gray-500">
-                        Faites défiler horizontalement pour découvrir plus de projets
+                        <span data-lang="fr">Faites défiler horizontalement pour découvrir plus de projets</span>
+                        <span data-lang="en" style="display: none;">Scroll horizontally to discover more projects</span>
                     </p>
                 </div>
             </div>
@@ -2508,5 +2700,37 @@
         return false;
     }
     </script> 
+    <script>
+      function switchLanguage(lang) {
+        // Hide all language elements
+        document.querySelectorAll('[data-lang]').forEach(el => {
+          el.style.display = 'none';
+        });
+        
+        // Show only elements for the selected language
+        document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+          el.style.display = '';
+        });
+        
+        // Update active language button styling for desktop
+        document.getElementById('lang-fr').classList.toggle('font-bold', lang === 'fr');
+        document.getElementById('lang-en').classList.toggle('font-bold', lang === 'en');
+        
+        // Update active language button styling for mobile
+        if (document.getElementById('lang-fr-mobile')) {
+          document.getElementById('lang-fr-mobile').classList.toggle('font-bold', lang === 'fr');
+          document.getElementById('lang-en-mobile').classList.toggle('font-bold', lang === 'en');
+        }
+        
+        // Store preference
+        localStorage.setItem('preferredLanguage', lang);
+      }
+      
+      // Initialize with stored preference or default to French
+      document.addEventListener('DOMContentLoaded', function() {
+        const storedLang = localStorage.getItem('preferredLanguage') || 'fr';
+        switchLanguage(storedLang);
+      });
+    </script>  
 </body>
 </html>
