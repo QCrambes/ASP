@@ -2472,8 +2472,6 @@
     </section>
 
     <!-- Contact Section -->
-    <!-- The contact form is designed to gather detailed technical requirements
-         while maintaining a professional and accessible layout -->
     <section id="contact" class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center text-asp-blue mb-16" data-aos="fade-up">
@@ -2497,7 +2495,6 @@
                     </div>
     
                     <!-- Contact Form -->
-                    <!-- Using form validation and semantic HTML for accessibility -->
                     <form class="space-y-8" id="contact-form" onsubmit="return sendMail(event)">
                         <!-- Contact Information Section -->
                         <div class="bg-gray-50 rounded-lg p-6">
@@ -2509,50 +2506,42 @@
                             <!-- Two Column Layout for Name and Company -->
                             <div class="grid md:grid-cols-2 gap-6 mb-6">
                                 <div>
-                                    <label for="name"
-                                           class="block text-sm font-medium text-gray-700 mb-2">
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
                                         <span data-lang="fr">Nom Complet *</span>
                                         <span data-lang="en" style="display: none;">Full Name *</span>
                                     </label>
                                     <input type="text" id="name" name="name" required
-                                           class="w-full px-4 py-2 border rounded-lg focus:ring-2
-                                                  focus:ring-asp-blue focus:border-transparent">
+                                           class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-asp-blue focus:border-transparent">
                                 </div>
     
                                 <div>
-                                    <label for="company"
-                                           class="block text-sm font-medium text-gray-700 mb-2">
+                                    <label for="company" class="block text-sm font-medium text-gray-700 mb-2">
                                         <span data-lang="fr">Société</span>
                                         <span data-lang="en" style="display: none;">Company</span>
                                     </label>
                                     <input type="text" id="company" name="company"
-                                           class="w-full px-4 py-2 border rounded-lg focus:ring-2
-                                                  focus:ring-asp-blue focus:border-transparent">
+                                           class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-asp-blue focus:border-transparent">
                                 </div>
                             </div>
     
                             <!-- Two Column Layout for Email and Phone -->
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div>
-                                    <label for="email"
-                                           class="block text-sm font-medium text-gray-700 mb-2">
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
                                         <span data-lang="fr">Email *</span>
                                         <span data-lang="en" style="display: none;">Email *</span>
                                     </label>
                                     <input type="email" id="email" name="email" required
-                                           class="w-full px-4 py-2 border rounded-lg focus:ring-2
-                                                  focus:ring-asp-blue focus:border-transparent">
+                                           class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-asp-blue focus:border-transparent">
                                 </div>
     
                                 <div>
-                                    <label for="phone"
-                                           class="block text-sm font-medium text-gray-700 mb-2">
+                                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
                                         <span data-lang="fr">Téléphone</span>
                                         <span data-lang="en" style="display: none;">Phone</span>
                                     </label>
                                     <input type="tel" id="phone" name="phone"
-                                           class="w-full px-4 py-2 border rounded-lg focus:ring-2
-                                                  focus:ring-asp-blue focus:border-transparent">
+                                           class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-asp-blue focus:border-transparent">
                                 </div>
                             </div>
                         </div>
@@ -2566,102 +2555,59 @@
     
                             <!-- Project Type -->
                             <div class="mb-6">
-                                <label for="project_type"
-                                       class="block text-sm font-medium text-gray-700 mb-2">
+                                <label for="project_type" class="block text-sm font-medium text-gray-700 mb-2">
                                     <span data-lang="fr">Type de Projet *</span>
                                     <span data-lang="en" style="display: none;">Project Type *</span>
                                 </label>
                                 <select id="project_type" name="project_type" required
-                                        class="w-full px-4 py-2 border rounded-lg focus:ring-2
-                                               focus:ring-asp-blue focus:border-transparent">
-                                    <option value="">
-                                        <span data-lang="fr">Sélectionnez le type de projet</span>
-                                        <span data-lang="en" style="display: none;">Select Project Type</span>
-                                    </option>
-                                    <option value="hybrid">
-                                        <span data-lang="fr">Installation Hybride PV/Thermique</span>
-                                        <span data-lang="en" style="display: none;">Hybrid PV/Thermal Installation</span>
-                                    </option>
-                                    <option value="control">
-                                        <span data-lang="fr">Automatique et contrôle</span>
-                                        <span data-lang="en" style="display: none;">Automation and Control</span>
-                                    </option>
-                                    <option value="hta">
-                                        <span data-lang="fr">Installation HTA</span>
-                                        <span data-lang="en" style="display: none;">HTA Installation</span>
-                                    </option>
-                                    <option value="study">
-                                        <span data-lang="fr">Étude de Faisabilité</span>
-                                        <span data-lang="en" style="display: none;">Feasibility Study</span>
-                                    </option>
-                                    <option value="other">
-                                        <span data-lang="fr">Autre</span>
-                                        <span data-lang="en" style="display: none;">Other</span>
-                                    </option>
+                                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-asp-blue focus:border-transparent language-toggle">
+                                    <option value="" data-lang-fr="Sélectionnez le type de projet" data-lang-en="Select Project Type"></option>
+                                    <option value="hybrid" data-lang-fr="Installation Hybride PV/Thermique" data-lang-en="Hybrid PV/Thermal Installation"></option>
+                                    <option value="control" data-lang-fr="Automatique et contrôle" data-lang-en="Automation and Control"></option>
+                                    <option value="hta" data-lang-fr="Installation HTA" data-lang-en="HTA Installation"></option>
+                                    <option value="study" data-lang-fr="Étude de Faisabilité" data-lang-en="Feasibility Study"></option>
+                                    <option value="other" data-lang-fr="Autre" data-lang-en="Other"></option>
                                 </select>
                             </div>
     
                             <!-- Project Location -->
                             <div class="mb-6">
-                                <label for="location"
-                                       class="block text-sm font-medium text-gray-700 mb-2">
+                                <label for="location" class="block text-sm font-medium text-gray-700 mb-2">
                                     <span data-lang="fr">Localisation du Projet *</span>
                                     <span data-lang="en" style="display: none;">Project Location *</span>
                                 </label>
                                 <input type="text" id="location" name="location" required
-                                       class="w-full px-4 py-2 border rounded-lg focus:ring-2
-                                              focus:ring-asp-blue focus:border-transparent"
+                                       class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-asp-blue focus:border-transparent"
                                        placeholder="Pays, Ville">
                             </div>
     
                             <!-- Project Timeline -->
                             <div class="mb-6">
-                                <label for="timeline"
-                                       class="block text-sm font-medium text-gray-700 mb-2">
+                                <label for="timeline" class="block text-sm font-medium text-gray-700 mb-2">
                                     <span data-lang="fr">Calendrier Souhaité</span>
                                     <span data-lang="en" style="display: none;">Desired Timeline</span>
                                 </label>
                                 <select id="timeline" name="timeline"
-                                        class="w-full px-4 py-2 border rounded-lg focus:ring-2
-                                               focus:ring-asp-blue focus:border-transparent">
-                                    <option value="">
-                                        <span data-lang="fr">Sélectionnez une période</span>
-                                        <span data-lang="en" style="display: none;">Select a Period</span>
-                                    </option>
-                                    <option value="immediate">
-                                        <span data-lang="fr">Immédiat</span>
-                                        <span data-lang="en" style="display: none;">Immediate</span>
-                                    </option>
-                                    <option value="3months">
-                                        <span data-lang="fr">Dans les 3 mois</span>
-                                        <span data-lang="en" style="display: none;">Within 3 Months</span>
-                                    </option>
-                                    <option value="6months">
-                                        <span data-lang="fr">Dans les 6 mois</span>
-                                        <span data-lang="en" style="display: none;">Within 6 Months</span>
-                                    </option>
-                                    <option value="12months">
-                                        <span data-lang="fr">Dans l'année</span>
-                                        <span data-lang="en" style="display: none;">Within the Year</span>
-                                    </option>
-                                    <option value="planning">
-                                        <span data-lang="fr">Phase de planification</span>
-                                        <span data-lang="en" style="display: none;">Planning Phase</span>
-                                    </option>
+                                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-asp-blue focus:border-transparent language-toggle">
+                                    <option value="" data-lang-fr="Sélectionnez une période" data-lang-en="Select a Period"></option>
+                                    <option value="immediate" data-lang-fr="Immédiat" data-lang-en="Immediate"></option>
+                                    <option value="3months" data-lang-fr="Dans les 3 mois" data-lang-en="Within 3 Months"></option>
+                                    <option value="6months" data-lang-fr="Dans les 6 mois" data-lang-en="Within 6 Months"></option>
+                                    <option value="12months" data-lang-fr="Dans l'année" data-lang-en="Within the Year"></option>
+                                    <option value="planning" data-lang-fr="Phase de planification" data-lang-en="Planning Phase"></option>
                                 </select>
                             </div>
     
                             <!-- Project Description -->
                             <div class="mb-6">
-                                <label for="description"
-                                       class="block text-sm font-medium text-gray-700 mb-2">
+                                <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
                                     <span data-lang="fr">Description Détaillée du Projet *</span>
                                     <span data-lang="en" style="display: none;">Detailed Project Description *</span>
                                 </label>
                                 <textarea id="description" name="description" rows="6" required
-                                          class="w-full px-4 py-2 border rounded-lg focus:ring-2
-                                                 focus:ring-asp-blue focus:border-transparent"
-                                          placeholder="Décrivez votre projet, ses spécifications techniques, vos objectifs et toute autre information pertinente..."></textarea>
+                                          class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-asp-blue focus:border-transparent language-toggle"
+                                          data-placeholder-fr="Décrivez votre projet, ses spécifications techniques, vos objectifs et toute autre information pertinente..."
+                                          data-placeholder-en="Describe your project, its technical specifications, your goals, and any other relevant information..."></textarea>
                             </div>
     
                             <!-- Technical Requirements -->
@@ -2672,24 +2618,20 @@
                                 </h5>
                                 <div class="grid md:grid-cols-2 gap-4">
                                     <div>
-                                        <label for="power_capacity"
-                                               class="block text-sm text-gray-600 mb-1">
+                                        <label for="power_capacity" class="block text-sm text-gray-600 mb-1">
                                             <span data-lang="fr">Puissance Souhaitée (kW/MW)</span>
                                             <span data-lang="en" style="display: none;">Desired Power Capacity (kW/MW)</span>
                                         </label>
                                         <input type="text" id="power_capacity" name="power_capacity"
-                                               class="w-full px-4 py-2 border rounded-lg focus:ring-2
-                                                      focus:ring-asp-blue focus:border-transparent">
+                                               class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-asp-blue focus:border-transparent">
                                     </div>
                                     <div>
-                                        <label for="storage_capacity"
-                                               class="block text-sm text-gray-600 mb-1">
+                                        <label for="storage_capacity" class="block text-sm text-gray-600 mb-1">
                                             <span data-lang="fr">Capacité de Stockage</span>
                                             <span data-lang="en" style="display: none;">Storage Capacity</span>
                                         </label>
                                         <input type="text" id="storage_capacity" name="storage_capacity"
-                                               class="w-full px-4 py-2 border rounded-lg focus:ring-2
-                                                      focus:ring-asp-blue focus:border-transparent">
+                                               class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-asp-blue focus:border-transparent">
                                     </div>
                                 </div>
                             </div>
@@ -2698,10 +2640,7 @@
                         <!-- Submit Button -->
                         <div class="flex justify-center">
                             <button type="submit"
-                                    class="bg-asp-blue text-white px-8 py-4 rounded-lg text-lg
-                                           font-semibold hover:bg-asp-green transition-colors
-                                           focus:outline-none focus:ring-2 focus:ring-offset-2
-                                           focus:ring-asp-blue">
+                                    class="bg-asp-blue text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-asp-green transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-asp-blue">
                                 <span data-lang="fr">Envoyer la Demande</span>
                                 <span data-lang="en" style="display: none;">Submit Request</span>
                             </button>
@@ -2711,6 +2650,7 @@
             </div>
         </div>
     </section>
+
 
 
     <footer class="bg-gray-50 pt-16 pb-6">
@@ -2954,6 +2894,17 @@
           document.getElementById('lang-fr-mobile').classList.toggle('font-bold', lang === 'fr');
           document.getElementById('lang-en-mobile').classList.toggle('font-bold', lang === 'en');
         }
+
+        // Update select options and textarea placeholders
+        document.querySelectorAll('select.language-toggle').forEach(select => {
+          Array.from(select.options).forEach(option => {
+            option.textContent = option.getAttribute(`data-lang-${lang}`);
+          });
+        });
+    
+        document.querySelectorAll('textarea.language-toggle').forEach(textarea => {
+          textarea.placeholder = textarea.getAttribute(`data-placeholder-${lang}`);
+        });
         
         // Store preference
         localStorage.setItem('preferredLanguage', lang);
